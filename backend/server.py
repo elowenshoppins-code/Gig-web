@@ -9,6 +9,8 @@ from pydantic import BaseModel, Field, ConfigDict
 from typing import List
 import uuid
 from datetime import datetime, timezone
+from routes.apk import router as apk_router
+from routes.settings import router as settings_router
 
 
 ROOT_DIR = Path(__file__).parent
