@@ -1,10 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
-import { ArrowRight, MapPin, TrendingUp } from 'lucide-react';
+import { ArrowRight, MapPin, TrendingUp, AlertTriangle } from 'lucide-react';
 
 export const Hero = () => {
+  const { t } = useTranslation();
+
   const scrollToDownload = () => {
     document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToHowItWorks = () => {
+    document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -21,34 +28,44 @@ export const Hero = () => {
           <div className="text-center lg:text-left space-y-8 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 text-cyan-400 text-sm font-medium">
               <TrendingUp size={16} />
-              <span>Maximiza tus ganancias en delivery</span>
+              <span>{t('hero.badge')}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              <span className="text-white">Encuentra</span>{' '}
-              <span className="text-gradient">Códigos ZIP</span>{' '}
-              <span className="text-white">con Alta Disponibilidad</span>
+              <span className="text-white">{t('hero.title.find')} </span>
+              <span className="text-gradient">{t('hero.title.zipCodes')}</span>{' '}
+              <span className="text-white">{t('hero.title.withAvailability')}</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0">
-              Nuestra IA escanea cada 48 horas todo Estados Unidos para encontrar los mejores códigos postales con disponibilidad en Instacart, DoorDash y Spark Driver. 
-              <span className="text-cyan-400 font-semibold"> ¡No más listas de espera!</span>
+              {t('hero.description')}{' '}
+              <span className="text-yellow-400 font-semibold">{t('hero.disclaimer')}</span>
             </p>
+
+            {/* Important Disclaimer */}
+            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 max-w-2xl mx-auto lg:mx-0">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="text-yellow-400 flex-shrink-0 mt-0.5" size={20} />
+                <p className="text-yellow-100 text-sm">
+                  <span className="font-bold">{t('disclaimer.noGuarantee')}</span> {t('disclaimer.highDemand')}
+                </p>
+              </div>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
                 onClick={scrollToDownload}
                 className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-lg px-8 py-6 rounded-full btn-primary glow-effect group"
               >
-                Descargar APK Gratis
+                {t('hero.cta.download')}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={scrollToHowItWorks}
                 className="border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 font-bold text-lg px-8 py-6 rounded-full"
               >
-                Cómo Funciona
+                {t('hero.cta.howItWorks')}
               </Button>
             </div>
 
@@ -56,15 +73,15 @@ export const Hero = () => {
             <div className="grid grid-cols-3 gap-4 pt-8 max-w-xl mx-auto lg:mx-0">
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-cyan-400">48h</div>
-                <div className="text-sm text-gray-400">Escaneo IA</div>
+                <div className="text-sm text-gray-400">{t('hero.stats.scan')}</div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-cyan-400">$5</div>
-                <div className="text-sm text-gray-400">Por App</div>
+                <div className="text-sm text-gray-400">{t('hero.stats.price')}</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold text-cyan-400">0%</div>
-                <div className="text-sm text-gray-400">Listas Espera</div>
+                <div className="text-3xl font-bold text-cyan-400">AI</div>
+                <div className="text-sm text-gray-400">{t('hero.stats.waitlist')}</div>
               </div>
             </div>
           </div>
@@ -87,9 +104,9 @@ export const Hero = () => {
                   </div>
                   <div>
                     <div className="text-white font-semibold">ZIP: 90210</div>
-                    <div className="text-green-400 text-sm font-medium">✓ Alta Disponibilidad</div>
+                    <div className="text-yellow-400 text-sm font-medium">⚠ Suggested</div>
                   </div>
-                  <div className="ml-auto text-cyan-400 font-bold text-xl">98%</div>
+                  <div className="ml-auto text-cyan-400 font-bold text-xl">AI</div>
                 </div>
               </div>
             </div>
