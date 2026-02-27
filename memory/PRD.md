@@ -39,7 +39,47 @@ GIG ZipFinder es una herramienta para gig workers que ayuda a:
 - Cards: Azul medio (#1e293b, #334155)
 - Text: Blanco y grises
 
-## Features Implementadas (20 Dic 2025)
+## Cambios Implementados (27 Dic 2025)
+
+### ✅ Actualizaciones de Copy y Disclaimers
+1. **Hero Section**: Eliminado disclaimer rojo, ahora muestra "*Condiciones y disponibilidad aplican"
+2. **Pricing**: Cambiado a "Te sugiere GRATIS 5 códigos postales con alta disponibilidad"
+3. **Features**: Actualizado lenguaje de "vender/garantizar" a "SUGERIR"
+4. **FAQ**: Eliminada pregunta sobre "soporte por email", actualizados disclaimers
+5. **Todos los componentes**: Enfatizan que NO garantizamos disponibilidad, solo sugerimos
+
+### ✅ Logos de Tarjetas
+- Implementados logos reales de Visa, Mastercard y American Express (SVG desde Wikimedia)
+- Reemplazados emojis por imágenes profesionales
+
+### ✅ Sistema Multilenguaje (i18n)
+- Implementado selector de idioma en header: 🇺🇸 English, 🇪🇸 Español, 🇧🇷 Português
+- Todas las secciones traducidas completamente
+- Rutas funcionando correctamente
+
+### ✅ Páginas Legales
+- **Privacy Policy**: `/privacy` - Completa con disclaimers sobre Stripe, no almacenamiento de datos
+- **Terms of Service**: `/terms` - Con disclaimers de no afiliación con apps de terceros
+- Ambas páginas en 3 idiomas
+
+### ✅ Sistema de Carga y Descarga de APK
+**Backend**:
+- Endpoint `POST /api/apk/upload-apk` para subir APK
+- Endpoint `GET /api/apk/download-apk` para descargar APK
+- Endpoint `GET /api/apk/apk-info` para verificar si existe APK
+
+**Frontend**:
+- Panel de admin en `/admin/upload` para subir APK
+- DownloadSection actualizada para descargar APK real
+- Verifica disponibilidad antes de mostrar botón de descarga
+
+### 📝 Disclaimers Importantes Añadidos
+- Footer: Disclaimer amarillo sobre no afiliación y no almacenamiento de datos de pago
+- Features: "Por la alta demanda, NO garantizamos que los códigos duren abiertos"
+- FAQ: Actualizadas respuestas enfatizando que solo SUGERIMOS, no garantizamos
+
+## Estado Actual
+✅ **Landing Page Multilenguaje Completada con Sistema de APK**
 
 ### ✅ Completado
 
