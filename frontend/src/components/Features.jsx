@@ -4,8 +4,8 @@ import { MapPin, Phone, BookOpen, Zap, Shield, TrendingUp } from 'lucide-react';
 const features = [
   {
     icon: MapPin,
-    title: 'IA Escanea ZIP Codes',
-    description: 'Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos con parámetros y algoritmos avanzados para encontrar disponibilidad.',
+    title: 'IA Sugiere ZIP Codes',
+    description: 'Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos con parámetros y algoritmos avanzados para SUGERIR disponibilidad. Por la alta demanda, NO garantizamos que los códigos duren abiertos mucho tiempo.',
     color: 'cyan',
     image: 'https://images.unsplash.com/photo-1584254520678-31fe4dce5306?w=500&h=400&fit=crop'
   },
@@ -25,14 +25,14 @@ const features = [
   },
   {
     icon: Zap,
-    title: 'Resultados Inmediatos',
-    description: 'Accede a códigos ZIP con alta probabilidad de disponibilidad y comienza a trabajar inmediatamente sin listas de espera.',
+    title: 'Sugerencias Inmediatas',
+    description: 'Accede a códigos ZIP SUGERIDOS con probabilidad de disponibilidad. Comenzar a trabajar puede ser inmediato, pero no garantizamos resultados.',
     color: 'green',
   },
   {
     icon: Shield,
     title: 'Seguro y Confiable',
-    description: 'Todos los números y datos están protegidos. Trabajamos con las mejores prácticas de seguridad para mantener tu información privada.',
+    description: 'Todos los números y datos están protegidos. Trabajamos con las mejores prácticas de seguridad para mantener tu información privada. NO almacenamos ni guardamos datos de pago o tarjetas de crédito.',
     color: 'cyan',
   },
   {
