@@ -13,7 +13,7 @@ const steps = [
     number: '02',
     icon: Search,
     title: 'Selecciona tu App de Gig',
-    description: 'Elige entre Instacart, DoorDash o Spark Driver. Nuestra IA ya escaneó los mejores ZIP codes disponibles.',
+    description: 'Elige entre Instacart, DoorDash o Spark Driver. Nuestra IA ya escaneó los mejores ZIP codes SUGERIDOS.',
     color: 'green'
   },
   {
@@ -27,7 +27,7 @@ const steps = [
     number: '04',
     icon: Rocket,
     title: 'Comienza a Ganar',
-    description: '¡Listo! Empieza a trabajar en zonas con alta disponibilidad y maximiza tus ganancias desde el primer día.',
+    description: '¡Listo! Empieza a trabajar en zonas SUGERIDAS y maximiza tus ganancias. Resultados pueden variar.',
     color: 'green'
   }
 ];
