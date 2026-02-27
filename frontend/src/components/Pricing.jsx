@@ -4,11 +4,11 @@ import { Button } from './ui/button';
 
 export const Pricing = () => {
   const features = [
-    '5 códigos postales con alto potencial',
+    '5 códigos postales sugeridos con alto potencial',
     'Guía completa paso a paso para abrir cuenta',
     'Número de teléfono gratuito completo',
-    'Soporte por correo electrónico',
-    'Actualizaciones de IA cada 48 horas'
+    'Actualizaciones de IA cada 48 horas',
+    'Aviso importante sobre disponibilidad'
   ];
 
   const scrollToDownload = () => {
@@ -76,7 +76,7 @@ export const Pricing = () => {
                   <span className="font-semibold">Pago seguro con Stripe</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Procesamiento seguro de pagos. Tus datos están protegidos.
+                  Procesamiento seguro de pagos. Tus datos están protegidos. <span className="text-yellow-400 font-semibold">No almacenamos ni guardamos datos de pago o tarjetas.</span>
                 </p>
               </div>
 
