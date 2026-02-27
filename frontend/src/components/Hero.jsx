@@ -39,18 +39,8 @@ export const Hero = () => {
 
             <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0">
               {t('hero.description')}{' '}
-              <span className="text-yellow-400 font-semibold">{t('hero.disclaimer')}</span>
+              <span className="text-cyan-400 text-sm">*{t('hero.conditions')}</span>
             </p>
-
-            {/* Important Disclaimer */}
-            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 max-w-2xl mx-auto lg:mx-0">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="text-yellow-400 flex-shrink-0 mt-0.5" size={20} />
-                <p className="text-yellow-100 text-sm">
-                  <span className="font-bold">{t('disclaimer.noGuarantee')}</span> {t('disclaimer.highDemand')}
-                </p>
-              </div>
-            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 

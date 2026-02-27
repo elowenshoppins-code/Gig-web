@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 
 export const Pricing = () => {
   const features = [
-    '5 códigos postales sugeridos con alto potencial',
+    'Te sugiere GRATIS 5 códigos postales con alta disponibilidad',
     'Guía completa paso a paso para abrir cuenta',
     'Número de teléfono gratuito completo',
     'Actualizaciones de IA cada 48 horas',
