@@ -15,6 +15,8 @@ import { TermsOfService } from "./components/TermsOfService";
 import { AdminUpload } from "./components/AdminUpload";
 import { GoogleAnalytics } from "./utils/analytics";
 
+import { AdminSettings } from "./components/AdminSettings";
+
 const HomePage = () => (
   <>
     <Hero />
@@ -39,6 +41,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/admin/upload" element={<AdminUpload />} />
+            <Route path="/admin/settings" element={<AdminSettings />} />
           </Routes>
         </main>
         <Footer />
