@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Features } from "./components/Features";
@@ -8,21 +9,35 @@ import { Pricing } from "./components/Pricing";
 import { DownloadSection } from "./components/DownloadSection";
 import { FAQ } from "./components/FAQ";
 import { Footer } from "./components/Footer";
+import { PrivacyPolicy } from "./components/PrivacyPolicy";
+import { TermsOfService } from "./components/TermsOfService";
+
+const HomePage = () => (
+  <>
+    <Hero />
+    <Features />
+    <HowItWorks />
+    <Pricing />
+    <DownloadSection />
+    <FAQ />
+  </>
+);
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <Pricing />
-        <DownloadSection />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
