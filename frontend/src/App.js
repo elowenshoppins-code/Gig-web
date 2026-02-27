@@ -11,6 +11,7 @@ import { FAQ } from "./components/FAQ";
 import { Footer } from "./components/Footer";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
+import { AdminUpload } from "./components/AdminUpload";
 
 const HomePage = () => (
   <>
@@ -33,6 +34,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/admin/upload" element={<AdminUpload />} />
           </Routes>
         </main>
         <Footer />
