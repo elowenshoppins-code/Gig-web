@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: '¿Realmente evito las listas de espera?',
-    answer: 'Nuestro sistema de IA identifica códigos ZIP con alta probabilidad de disponibilidad inmediata. Si bien no podemos garantizar 100% de aceptación (ya que las apps cambian constantemente sus criterios), nuestros usuarios reportan una tasa de éxito superior al 90% comparado con intentar registrarse sin nuestra ayuda.'
+    answer: 'Nuestro sistema de IA identifica códigos ZIP con alta probabilidad de disponibilidad inmediata. Sin embargo, NO podemos garantizar 100% de aceptación ya que las apps cambian constantemente sus criterios y la demanda es muy alta. SUGERIMOS códigos basados en análisis continuo, pero los resultados pueden variar. Por la alta demanda, no garantizamos que los códigos sugeridos permanezcan abiertos o funcionen en todos los casos. Somos una herramienta de ayuda, no socios de las apps mencionadas.'
   },
   {
     question: '¿La app está disponible para iOS y Android?',
@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     question: '¿Qué pasa si el código ZIP no funciona?',
-    answer: 'Aunque nuestro sistema tiene una alta tasa de éxito, si ninguno de los 5 códigos ZIP proporcionados funciona para tu caso específico, contacta a nuestro equipo de soporte. Trabajaremos contigo para encontrar una solución o alternativa viable.'
+    answer: 'Debido a la alta demanda y cambios constantes en las apps de delivery, NO podemos garantizar que los códigos ZIP sugeridos siempre estarán disponibles o funcionarán en todos los casos. Nuestra IA proporciona SUGERENCIAS basadas en análisis de datos, pero la disponibilidad puede cambiar rápidamente. Somos una herramienta de ayuda INDEPENDIENTE, NO somos afiliados ni socios de Instacart, DoorDash, Spark Driver o cualquier otra plataforma mencionada.'
   }
 ];
 
@@ -84,17 +84,7 @@ export const FAQ = () => {
           </Accordion>
         </div>
 
-        {/* Contact CTA */}
-        <div className="text-center mt-12">
-          <p className="text-gray-300 mb-4">¿Aún tienes preguntas?</p>
-          <a 
-            href="mailto:support@gigzipfinder.com" 
-            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
-          >
-            Contáctanos por correo
-            <span>→</span>
-          </a>
-        </div>
+        {/* Contact CTA - REMOVED */}
       </div>
     </section>
   );
