@@ -23,10 +23,10 @@ export const Footer = () => {
     <footer className="relative overflow-hidden bg-[#0f172a] border-t border-cyan-500/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10">
         {/* Important Disclaimer */}
-        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 mb-12">
-          <div className="flex items-start gap-3">
-            <AlertTriangle className="text-yellow-400 flex-shrink-0 mt-0.5" size={20} />
-            <div className="text-sm space-y-1">
+        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-3 mb-12">
+          <div className="flex items-start gap-2">
+            <AlertTriangle className="text-yellow-400 flex-shrink-0 mt-0.5" size={16} />
+            <div className="text-xs space-y-1">
               <p className="text-yellow-100">
                 <span className="font-bold">{t('disclaimer.notPartners')}</span>
               </p>

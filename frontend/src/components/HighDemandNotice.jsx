@@ -23,27 +23,27 @@ export const HighDemandNotice = () => {
   const currentContent = content[i18n.language] || content.en;
 
   return (
-    <section className="py-16 relative overflow-hidden bg-gradient-to-b from-transparent to-[#0f172a]/50">
+    <section className="py-12 relative overflow-hidden bg-gradient-to-b from-transparent to-[#0f172a]/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border-2 border-yellow-500/30 rounded-2xl p-8 lg:p-10">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="bg-yellow-500/20 p-3 rounded-full flex-shrink-0">
-                <Clock className="text-yellow-400" size={28} />
+          <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 rounded-xl p-6">
+            <div className="flex items-start gap-3 mb-3">
+              <div className="bg-yellow-500/20 p-2 rounded-full flex-shrink-0">
+                <Clock className="text-yellow-400" size={20} />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
                   {currentContent.title}
                 </h3>
-                <p className="text-gray-200 leading-relaxed text-lg">
+                <p className="text-gray-200 leading-relaxed text-sm">
                   {currentContent.message}
                 </p>
               </div>
             </div>
             
             {/* Visual indicator */}
-            <div className="mt-6 pt-6 border-t border-yellow-500/20 flex items-center justify-center gap-3 text-yellow-400">
-              <AlertTriangle size={20} />
+            <div className="mt-4 pt-4 border-t border-yellow-500/20 flex items-center justify-center gap-2 text-yellow-400 text-xs">
+              <AlertTriangle size={14} />
               <span className="font-semibold">High Demand • Act Fast • Limited Availability</span>
             </div>
           </div>
