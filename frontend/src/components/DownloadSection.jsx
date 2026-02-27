@@ -35,7 +35,7 @@ export const DownloadSection = () => {
                 <span className="text-gradient">GIG ZipFinder</span>
               </h2>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Obtén acceso inmediato a los mejores códigos ZIP y comienza a maximizar tus ganancias hoy mismo
+                Obtén acceso inmediato a los mejores códigos ZIP <span className="text-yellow-400 font-semibold">SUGERIDOS</span> y comienza a maximizar tus ganancias hoy mismo
               </p>
             </div>
 
