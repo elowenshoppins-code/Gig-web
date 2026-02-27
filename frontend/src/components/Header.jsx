@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
+import { LanguageSelector } from './LanguageSelector';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Header = () => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -15,11 +21,26 @@ export const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsMobileMenuOpen(false);
+      }
     }
+  };
+
+  const goHome = () => {
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -31,7 +52,7 @@ export const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={goHome}>
             <img 
               src="https://customer-assets.emergentagent.com/job_gif-tools-central/artifacts/n4fk7fqx_icon_192x192.png" 
               alt="GIG ZipFinder" 
@@ -49,32 +70,36 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             <button onClick={() => scrollToSection('features')} className="text-gray-300 hover:text-cyan-400 transition-colors font-medium">
-              Características
+              {t('nav.features')}
             </button>
             <button onClick={() => scrollToSection('how-it-works')} className="text-gray-300 hover:text-cyan-400 transition-colors font-medium">
-              Cómo Funciona
+              {t('nav.howItWorks')}
             </button>
             <button onClick={() => scrollToSection('pricing')} className="text-gray-300 hover:text-cyan-400 transition-colors font-medium">
-              Precios
+              {t('nav.pricing')}
             </button>
             <button onClick={() => scrollToSection('faq')} className="text-gray-300 hover:text-cyan-400 transition-colors font-medium">
-              FAQ
+              {t('nav.faq')}
             </button>
+            <LanguageSelector />
             <Button 
               onClick={() => scrollToSection('download')}
               className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-2 rounded-full btn-primary"
             >
-              Descargar APK
+              {t('nav.downloadAPK')}
             </Button>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Button + Language Selector */}
+          <div className="lg:hidden flex items-center gap-2">
+            <LanguageSelector />
+            <button
+              className="text-white p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -82,22 +107,22 @@ export const Header = () => {
           <div className="lg:hidden bg-[#0f172a] border-t border-cyan-500/20 py-4 animate-fade-in-up">
             <nav className="flex flex-col space-y-4 px-4">
               <button onClick={() => scrollToSection('features')} className="text-gray-300 hover:text-cyan-400 transition-colors text-left py-2">
-                Características
+                {t('nav.features')}
               </button>
               <button onClick={() => scrollToSection('how-it-works')} className="text-gray-300 hover:text-cyan-400 transition-colors text-left py-2">
-                Cómo Funciona
+                {t('nav.howItWorks')}
               </button>
               <button onClick={() => scrollToSection('pricing')} className="text-gray-300 hover:text-cyan-400 transition-colors text-left py-2">
-                Precios
+                {t('nav.pricing')}
               </button>
               <button onClick={() => scrollToSection('faq')} className="text-gray-300 hover:text-cyan-400 transition-colors text-left py-2">
-                FAQ
+                {t('nav.faq')}
               </button>
               <Button 
                 onClick={() => scrollToSection('download')}
                 className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold w-full rounded-full"
               >
-                Descargar APK
+                {t('nav.downloadAPK')}
               </Button>
             </nav>
           </div>
