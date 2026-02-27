@@ -26,7 +26,7 @@ const features = [
   {
     icon: Zap,
     title: 'Sugerencias Inmediatas',
-    description: 'Accede a códigos ZIP SUGERIDOS con probabilidad de disponibilidad. Comenzar a trabajar puede ser inmediato, pero no garantizamos resultados.',
+    description: 'Accede a códigos ZIP SUGERIDOS con probabilidad de disponibilidad. *Sujeto a disponibilidad por alta demanda de descarga.',
     color: 'green',
   },
   {
