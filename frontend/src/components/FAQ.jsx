@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: '¿El número de teléfono es realmente gratis?',
-    answer: '¡Sí! Proporcionamos un número de teléfono completamente gratuito sin ninguna renta mensual. Este número puede recibir llamadas y mensajes de texto (SMS), lo cual es perfecto para registrarte en todas las aplicaciones de gig que necesites sin costo adicional.'
+    answer: '¡Sí! Te enseñamos cómo obtener un número de teléfono completamente gratuito sin ninguna renta mensual. Este número puede recibir llamadas y mensajes de texto (SMS), lo cual es perfecto para registrarte en todas las aplicaciones de gig que necesites sin costo adicional.'
   },
   {
     question: '¿Qué incluye la guía paso a paso?',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: '¿Puedo usar el mismo número para varias apps?',
-    answer: 'Sí, el número de teléfono que te proporcionamos puede ser usado para registrarte en múltiples aplicaciones. Recibirás todos los SMS y llamadas necesarios para completar el proceso de verificación en cada una de ellas.'
+    answer: 'Sí, el número de teléfono que te enseñamos a obtener puede ser usado para registrarte en múltiples aplicaciones. Recibirás todos los SMS y llamadas necesarios para completar el proceso de verificación en cada una de ellas.'
   },
   {
     question: '¿Qué pasa si el código ZIP no funciona?',

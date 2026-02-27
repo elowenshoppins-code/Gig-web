@@ -11,8 +11,8 @@ const features = [
   },
   {
     icon: Phone,
-    title: 'Número Gratis Sin Renta',
-    description: 'Obtén un número de teléfono completamente gratis sin rentas mensuales que recibe llamadas y mensajes de texto para registrarte en todas las apps.',
+    title: 'Te Enseñamos Número Gratis',
+    description: 'Te enseñamos cómo obtener un número de teléfono completamente gratis sin mensualidades que recibe llamadas y mensajes de texto para registrarte en todas las apps.',
     color: 'green',
     image: 'https://images.unsplash.com/photo-1609162554108-6490759499ef?w=500&h=400&fit=crop'
   },

@@ -20,7 +20,7 @@ const steps = [
     number: '03',
     icon: Check,
     title: 'Sigue la Guía Paso a Paso',
-    description: 'Usa nuestras guías detalladas y el número de teléfono gratuito para completar tu registro sin problemas.',
+    description: 'Usa nuestras guías detalladas y aprende cómo obtener un número de teléfono gratuito para completar tu registro sin problemas.',
     color: 'cyan'
   },
   {

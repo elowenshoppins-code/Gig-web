@@ -6,7 +6,7 @@ export const Pricing = () => {
   const features = [
     'Te sugiere GRATIS 5 códigos postales con alta disponibilidad',
     'Guía completa paso a paso para abrir cuenta',
-    'Número de teléfono gratuito completo',
+    'Te enseñamos cómo obtener un número de teléfono gratis',
     'Actualizaciones de IA cada 48 horas',
     'Aviso importante sobre disponibilidad'
   ];

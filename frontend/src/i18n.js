@@ -33,8 +33,8 @@ const resources = {
       "features.ai.title": "AI Scans ZIP Codes",
       "features.ai.description": "Our artificial intelligence scans every 48 hours all ZIP codes in the United States with advanced parameters and algorithms to suggest availability. Due to high demand, we do not guarantee codes will remain open for long.",
       
-      "features.phone.title": "Free Number No Monthly Fee",
-      "features.phone.description": "Get a completely free phone number with no monthly fees that receives calls and text messages to register on all apps.",
+      "features.phone.title": "We Teach You Free Number",
+      "features.phone.description": "We teach you how to get a completely free phone number with no monthly fees that receives calls and text messages to register on all apps.",
       
       "features.guides.title": "Step-by-Step Guides",
       "features.guides.description": "We help you open gig applications step by step. Detailed instructions for Instacart, DoorDash, Spark Driver and more.",
@@ -63,7 +63,7 @@ const resources = {
       "howItWorks.step2.description": "Choose between Instacart, DoorDash or Spark Driver. Our AI has already scanned the best available ZIP codes.",
       
       "howItWorks.step3.title": "Follow Step-by-Step Guide",
-      "howItWorks.step3.description": "Use our detailed guides and free phone number to complete your registration without problems.",
+      "howItWorks.step3.description": "Use our detailed guides and learn how to get a free phone number to complete your registration without problems.",
       
       "howItWorks.step4.title": "Start Earning",
       "howItWorks.step4.description": "Ready! Start working in areas with high availability and maximize your earnings from day one.",
@@ -81,7 +81,7 @@ const resources = {
       
       "pricing.feature1": "Suggests you FREE 5 ZIP codes with high availability",
       "pricing.feature2": "Complete step-by-step guide to open account",
-      "pricing.feature3": "Complete free phone number",
+      "pricing.feature3": "We teach you how to get a free phone number",
       "pricing.feature4": "AI updates every 48 hours",
       "pricing.feature5": "Important disclaimer about availability",
       
@@ -117,13 +117,13 @@ const resources = {
       "faq.a1": "Our artificial intelligence scans every 48 hours all ZIP codes in the United States using advanced parameters and algorithms. We analyze availability on Instacart, DoorDash and Spark Driver to suggest areas with highest probability of acceptance. However, due to high demand and constant changes in apps, we do not guarantee that suggested codes will remain available or work in all cases.",
       
       "faq.q2": "Is the phone number really free?",
-      "faq.a2": "Yes! We provide a completely free phone number with no monthly fee. This number can receive calls and text messages (SMS), which is perfect for registering on all gig apps you need at no additional cost.",
+      "faq.a2": "Yes! We teach you how to get a completely free phone number with no monthly fee. This number can receive calls and text messages (SMS), which is perfect for registering on all gig apps you need at no additional cost.",
       
       "faq.q3": "What does the step-by-step guide include?",
-      "faq.a3": "Each guide includes detailed and specific instructions to open your account on the selected application (Instacart, DoorDash or Spark Driver). We show you exactly what information you need, how to fill each field, what documents to prepare, and the best suggested ZIP codes to use based on our AI analysis.",
+      "faq.a3": "Each guide includes detailed and specific instructions to open your account on the selected application (Instacart, DoorDash or Spark Driver). We show you exactly what information you need, how to fill each field, what documents to prepare, and we teach you how to get a free phone number. Plus, we suggest the best ZIP codes to use based on our AI analysis.",
       
       "faq.q4": "How much does GIG ZipFinder cost?",
-      "faq.a4": "GIG ZipFinder costs $5.00 USD for each application you want to open. It's a one-time payment, no subscriptions or monthly fees. For that price you get: 5 suggested ZIP codes with high potential, complete step-by-step guide, free phone number, and access to our AI updates every 48 hours.",
+      "faq.a4": "GIG ZipFinder costs $5.00 USD for each application you want to open. It's a one-time payment, no subscriptions or monthly fees. For that price you get: 5 suggested ZIP codes with high potential, complete step-by-step guide, we teach you how to get a free phone number, and access to our AI updates every 48 hours.",
       
       "faq.q5": "What apps does GIG ZipFinder work with?",
       "faq.a5": "Currently GIG ZipFinder is compatible with the three main delivery apps: Instacart (grocery shopping and delivery), DoorDash (food and grocery delivery), and Spark Driver (Walmart delivery service). We are working to add more apps soon.",
@@ -138,7 +138,7 @@ const resources = {
       "faq.a8": "All payments are processed securely through Stripe, one of the world's most trusted payment processors. We accept Visa, Mastercard, and American Express. Your financial data is completely protected and encrypted. We do not store or save any payment or card information.",
       
       "faq.q9": "Can I use the same number for multiple apps?",
-      "faq.a9": "Yes, the phone number we provide can be used to register on multiple applications. You will receive all necessary SMS and calls to complete the verification process on each one.",
+      "faq.a9": "Yes, the phone number we teach you how to get can be used to register on multiple applications. You will receive all necessary SMS and calls to complete the verification process on each one.",
       
       "faq.q10": "What if the ZIP code doesn't work?",
       "faq.a10": "Due to high demand and constant changes in delivery apps, we cannot guarantee that suggested ZIP codes will always be available or work in all cases. Our AI provides suggestions based on data analysis, but availability can change rapidly. We are a help tool, not partners with the mentioned apps.",
@@ -193,8 +193,8 @@ const resources = {
       "features.ai.title": "IA Sugiere ZIP Codes",
       "features.ai.description": "Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos con parámetros y algoritmos avanzados para sugerir disponibilidad. Por la alta demanda, no garantizamos que los códigos duren abiertos mucho tiempo.",
       
-      "features.phone.title": "Número Gratis Sin Renta",
-      "features.phone.description": "Obtén un número de teléfono completamente gratis sin rentas mensuales que recibe llamadas y mensajes de texto para registrarte en todas las apps.",
+      "features.phone.title": "Te Enseñamos Número Gratis",
+      "features.phone.description": "Te enseñamos cómo obtener un número de teléfono completamente gratis sin mensualidades que recibe llamadas y mensajes de texto para registrarte en todas las apps.",
       
       "features.guides.title": "Guías Paso a Paso",
       "features.guides.description": "Te ayudamos a abrir aplicaciones de gig paso a paso. Instrucciones detalladas para Instacart, DoorDash, Spark Driver y más.",
@@ -223,7 +223,7 @@ const resources = {
       "howItWorks.step2.description": "Elige entre Instacart, DoorDash o Spark Driver. Nuestra IA ya escaneó los mejores ZIP codes sugeridos.",
       
       "howItWorks.step3.title": "Sigue la Guía Paso a Paso",
-      "howItWorks.step3.description": "Usa nuestras guías detalladas y el número de teléfono gratuito para completar tu registro sin problemas.",
+      "howItWorks.step3.description": "Usa nuestras guías detalladas y aprende cómo obtener un número de teléfono gratuito para completar tu registro sin problemas.",
       
       "howItWorks.step4.title": "Comienza a Ganar",
       "howItWorks.step4.description": "¡Listo! Empieza a trabajar en zonas sugeridas con disponibilidad y maximiza tus ganancias desde el primer día.",
@@ -241,7 +241,7 @@ const resources = {
       
       "pricing.feature1": "Te sugiere GRATIS 5 códigos postales con alta disponibilidad",
       "pricing.feature2": "Guía completa paso a paso para abrir cuenta",
-      "pricing.feature3": "Número de teléfono gratuito completo",
+      "pricing.feature3": "Te enseñamos cómo obtener un número de teléfono gratis",
       "pricing.feature4": "Actualizaciones de IA cada 48 horas",
       "pricing.feature5": "Aviso importante sobre disponibilidad",
       
@@ -277,13 +277,13 @@ const resources = {
       "faq.a1": "Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos utilizando parámetros y algoritmos avanzados. Analizamos la disponibilidad en Instacart, DoorDash y Spark Driver para sugerir las zonas con mayor probabilidad de aceptación. Sin embargo, por la alta demanda y cambios constantes en las apps, no garantizamos que los códigos sugeridos permanezcan disponibles o funcionen en todos los casos.",
       
       "faq.q2": "¿El número de teléfono es realmente gratis?",
-      "faq.a2": "¡Sí! Proporcionamos un número de teléfono completamente gratuito sin ninguna renta mensual. Este número puede recibir llamadas y mensajes de texto (SMS), lo cual es perfecto para registrarte en todas las aplicaciones de gig que necesites sin costo adicional.",
+      "faq.a2": "¡Sí! Te enseñamos cómo obtener un número de teléfono completamente gratuito sin ninguna renta mensual. Este número puede recibir llamadas y mensajes de texto (SMS), lo cual es perfecto para registrarte en todas las aplicaciones de gig que necesites sin costo adicional.",
       
       "faq.q3": "¿Qué incluye la guía paso a paso?",
-      "faq.a3": "Cada guía incluye instrucciones detalladas y específicas para abrir tu cuenta en la aplicación seleccionada (Instacart, DoorDash o Spark Driver). Te mostramos exactamente qué información necesitas, cómo llenar cada campo, qué documentos preparar, y los mejores códigos ZIP sugeridos para usar basados en nuestro análisis de IA.",
+      "faq.a3": "Cada guía incluye instrucciones detalladas y específicas para abrir tu cuenta en la aplicación seleccionada (Instacart, DoorDash o Spark Driver). Te mostramos exactamente qué información necesitas, cómo llenar cada campo, qué documentos preparar, y te enseñamos cómo obtener un número de teléfono gratis. Además, te sugerimos los mejores códigos ZIP para usar basados en nuestro análisis de IA.",
       
       "faq.q4": "¿Cuánto cuesta usar GIG ZipFinder?",
-      "faq.a4": "GIG ZipFinder cuesta $5.00 USD por cada aplicación que desees abrir. Es un pago único, sin suscripciones ni rentas mensuales. Por ese precio obtienes: 5 códigos postales sugeridos con alto potencial, guía completa paso a paso, número de teléfono gratuito, y acceso a actualizaciones de nuestra IA cada 48 horas.",
+      "faq.a4": "GIG ZipFinder cuesta $5.00 USD por cada aplicación que desees abrir. Es un pago único, sin suscripciones ni rentas mensuales. Por ese precio obtienes: 5 códigos postales sugeridos con alto potencial, guía completa paso a paso, te enseñamos cómo obtener un número de teléfono gratis, y acceso a actualizaciones de nuestra IA cada 48 horas.",
       
       "faq.q5": "¿En qué apps funciona GIG ZipFinder?",
       "faq.a5": "Actualmente GIG ZipFinder es compatible con las tres principales aplicaciones de delivery: Instacart (compras y entrega de comestibles), DoorDash (entrega de comida y abarrotes), y Spark Driver (servicio de entrega de Walmart). Estamos trabajando para agregar más aplicaciones próximamente.",
@@ -298,7 +298,7 @@ const resources = {
       "faq.a8": "Todos los pagos se procesan de forma segura a través de Stripe, uno de los procesadores de pagos más confiables del mundo. Aceptamos Visa, Mastercard, y American Express. Tus datos financieros están completamente protegidos y encriptados. No almacenamos ni guardamos ninguna información de pago o tarjetas.",
       
       "faq.q9": "¿Puedo usar el mismo número para varias apps?",
-      "faq.a9": "Sí, el número de teléfono que te proporcionamos puede ser usado para registrarte en múltiples aplicaciones. Recibirás todos los SMS y llamadas necesarios para completar el proceso de verificación en cada una de ellas.",
+      "faq.a9": "Sí, el número de teléfono que te enseñamos a obtener puede ser usado para registrarte en múltiples aplicaciones. Recibirás todos los SMS y llamadas necesarios para completar el proceso de verificación en cada una de ellas.",
       
       "faq.q10": "¿Qué pasa si el código ZIP no funciona?",
       "faq.a10": "Debido a la alta demanda y cambios constantes en las apps de delivery, no podemos garantizar que los códigos ZIP sugeridos siempre estarán disponibles o funcionarán en todos los casos. Nuestra IA proporciona sugerencias basadas en análisis de datos, pero la disponibilidad puede cambiar rápidamente. Somos una herramienta de ayuda, no socios de las apps mencionadas.",
@@ -353,8 +353,8 @@ const resources = {
       "features.ai.title": "IA Sugere ZIP Codes",
       "features.ai.description": "Nossa inteligência artificial escaneia a cada 48 horas todos os códigos postais nos Estados Unidos com parâmetros e algoritmos avançados para sugerir disponibilidade. Devido à alta demanda, não garantimos que os códigos permanecerão abertos por muito tempo.",
       
-      "features.phone.title": "Número Grátis Sem Mensalidade",
-      "features.phone.description": "Obtenha um número de telefone completamente grátis sem mensalidades que recebe chamadas e mensagens de texto para se registrar em todos os apps.",
+      "features.phone.title": "Ensinamos Número Grátis",
+      "features.phone.description": "Ensinamos como obter um número de telefone completamente grátis sem mensalidades que recebe chamadas e mensagens de texto para se registrar em todos os apps.",
       
       "features.guides.title": "Guias Passo a Passo",
       "features.guides.description": "Ajudamos você a abrir aplicativos de gig passo a passo. Instruções detalhadas para Instacart, DoorDash, Spark Driver e mais.",
@@ -383,7 +383,7 @@ const resources = {
       "howItWorks.step2.description": "Escolha entre Instacart, DoorDash ou Spark Driver. Nossa IA já escaneou os melhores códigos ZIP sugeridos.",
       
       "howItWorks.step3.title": "Siga o Guia Passo a Passo",
-      "howItWorks.step3.description": "Use nossos guias detalhados e o número de telefone gratuito para completar seu registro sem problemas.",
+      "howItWorks.step3.description": "Use nossos guias detalhados e aprenda como obter um número de telefone gratuito para completar seu registro sem problemas.",
       
       "howItWorks.step4.title": "Comece a Ganhar",
       "howItWorks.step4.description": "Pronto! Comece a trabalhar em zonas sugeridas com disponibilidade e maximize seus ganhos desde o primeiro dia.",
@@ -401,7 +401,7 @@ const resources = {
       
       "pricing.feature1": "Sugere GRÁTIS 5 códigos postais com alta disponibilidade",
       "pricing.feature2": "Guia completo passo a passo para abrir conta",
-      "pricing.feature3": "Número de telefone gratuito completo",
+      "pricing.feature3": "Ensinamos como obter um número de telefone grátis",
       "pricing.feature4": "Atualizações de IA a cada 48 horas",
       "pricing.feature5": "Aviso importante sobre disponibilidade",
       
@@ -437,13 +437,13 @@ const resources = {
       "faq.a1": "Nossa inteligência artificial escaneia a cada 48 horas todos os códigos postais nos Estados Unidos usando parâmetros e algoritmos avançados. Analisamos a disponibilidade no Instacart, DoorDash e Spark Driver para sugerir as áreas com maior probabilidade de aceitação. No entanto, devido à alta demanda e mudanças constantes nos apps, não garantimos que os códigos sugeridos permanecerão disponíveis ou funcionarão em todos os casos.",
       
       "faq.q2": "O número de telefone é realmente grátis?",
-      "faq.a2": "Sim! Fornecemos um número de telefone completamente gratuito sem nenhuma mensalidade. Este número pode receber chamadas e mensagens de texto (SMS), o que é perfeito para se registrar em todos os aplicativos de gig que você precisa sem custo adicional.",
+      "faq.a2": "Sim! Ensinamos como obter um número de telefone completamente gratuito sem nenhuma mensalidade. Este número pode receber chamadas e mensagens de texto (SMS), o que é perfeito para se registrar em todos os aplicativos de gig que você precisa sem custo adicional.",
       
       "faq.q3": "O que inclui o guia passo a passo?",
-      "faq.a3": "Cada guia inclui instruções detalhadas e específicas para abrir sua conta no aplicativo selecionado (Instacart, DoorDash ou Spark Driver). Mostramos exatamente quais informações você precisa, como preencher cada campo, quais documentos preparar e os melhores códigos ZIP sugeridos para usar com base em nossa análise de IA.",
+      "faq.a3": "Cada guia inclui instruções detalhadas e específicas para abrir sua conta no aplicativo selecionado (Instacart, DoorDash ou Spark Driver). Mostramos exatamente quais informações você precisa, como preencher cada campo, quais documentos preparar, e ensinamos como obter um número de telefone grátis. Além disso, sugerimos os melhores códigos ZIP para usar com base em nossa análise de IA.",
       
       "faq.q4": "Quanto custa usar GIG ZipFinder?",
-      "faq.a4": "GIG ZipFinder custa $5.00 USD por cada aplicativo que você deseja abrir. É um pagamento único, sem assinaturas ou mensalidades. Por esse preço você obtém: 5 códigos postais sugeridos com alto potencial, guia completo passo a passo, número de telefone gratuito e acesso a atualizações de nossa IA a cada 48 horas.",
+      "faq.a4": "GIG ZipFinder custa $5.00 USD por cada aplicativo que você deseja abrir. É um pagamento único, sem assinaturas ou mensalidades. Por esse preço você obtém: 5 códigos postais sugeridos com alto potencial, guia completo passo a passo, ensinamos como obter um número de telefone grátis, e acesso a atualizações de nossa IA a cada 48 horas.",
       
       "faq.q5": "Em quais apps o GIG ZipFinder funciona?",
       "faq.a5": "Atualmente o GIG ZipFinder é compatível com os três principais aplicativos de delivery: Instacart (compras e entrega de mantimentos), DoorDash (entrega de comida e mantimentos) e Spark Driver (serviço de entrega do Walmart). Estamos trabalhando para adicionar mais aplicativos em breve.",
@@ -458,7 +458,7 @@ const resources = {
       "faq.a8": "Todos os pagamentos são processados com segurança através do Stripe, um dos processadores de pagamento mais confiáveis do mundo. Aceitamos Visa, Mastercard e American Express. Seus dados financeiros estão completamente protegidos e criptografados. Não armazenamos nem guardamos nenhuma informação de pagamento ou cartões.",
       
       "faq.q9": "Posso usar o mesmo número para vários apps?",
-      "faq.a9": "Sim, o número de telefone que fornecemos pode ser usado para se registrar em vários aplicativos. Você receberá todos os SMS e chamadas necessários para completar o processo de verificação em cada um deles.",
+      "faq.a9": "Sim, o número de telefone que ensinamos como obter pode ser usado para se registrar em vários aplicativos. Você receberá todos os SMS e chamadas necessários para completar o processo de verificação em cada um deles.",
       
       "faq.q10": "E se o código ZIP não funcionar?",
       "faq.a10": "Devido à alta demanda e mudanças constantes nos apps de delivery, não podemos garantir que os códigos ZIP sugeridos sempre estarão disponíveis ou funcionarão em todos os casos. Nossa IA fornece sugestões baseadas em análise de dados, mas a disponibilidade pode mudar rapidamente. Somos uma ferramenta de ajuda, não parceiros dos apps mencionados.",
