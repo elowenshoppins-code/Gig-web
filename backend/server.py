@@ -68,6 +68,7 @@ async def get_status_checks():
 
 # Include the router in the main app
 app.include_router(api_router)
+app.include_router(apk_router, prefix="/api/apk", tags=["apk"])
 
 app.add_middleware(
     CORSMiddleware,
