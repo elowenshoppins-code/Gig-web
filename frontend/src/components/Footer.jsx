@@ -79,50 +79,43 @@ export const Footer = () => {
               >
                 <Instagram className="text-cyan-400 group-hover:scale-110 transition-transform" size={20} />
               </a>
-              <a 
-                href="mailto:support@gigzipfinder.com"
-                className="bg-[#1e293b] hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/50 p-3 rounded-full transition-all group"
-                aria-label="Email"
-              >
-                <Mail className="text-cyan-400 group-hover:scale-110 transition-transform" size={20} />
-              </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Enlaces Rápidos</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-3">
               <li>
                 <button 
-                  onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('features')}
                   className="text-gray-300 hover:text-cyan-400 transition-colors"
                 >
-                  Características
+                  {t('nav.features')}
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('how-it-works')}
                   className="text-gray-300 hover:text-cyan-400 transition-colors"
                 >
-                  Cómo Funciona
+                  {t('nav.howItWorks')}
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('pricing')}
                   className="text-gray-300 hover:text-cyan-400 transition-colors"
                 >
-                  Precios
+                  {t('nav.pricing')}
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('faq')}
                   className="text-gray-300 hover:text-cyan-400 transition-colors"
                 >
-                  FAQ
+                  {t('nav.faq')}
                 </button>
               </li>
             </ul>
@@ -130,7 +123,7 @@ export const Footer = () => {
 
           {/* Supported Apps */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Apps Soportadas</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{t('footer.supportedApps')}</h3>
             <ul className="space-y-3">
               <li className="text-gray-300 flex items-center gap-2">
                 <span className="text-green-400">✓</span> Instacart
@@ -142,7 +135,7 @@ export const Footer = () => {
                 <span className="text-green-400">✓</span> Spark Driver
               </li>
               <li className="text-gray-400 flex items-center gap-2">
-                <span className="text-cyan-400">⏱</span> Más próximamente
+                <span className="text-cyan-400">⏱</span> {t('footer.moreComingSoon')}
               </li>
             </ul>
           </div>
@@ -152,18 +145,21 @@ export const Footer = () => {
         <div className="border-t border-cyan-500/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} GIG ZipFinder. Todos los derechos reservados.
+              © {currentYear} GIG ZipFinder. {t('footer.rights')}
             </div>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                Política de Privacidad
-              </a>
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                Términos de Servicio
-              </a>
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                Contacto
-              </a>
+              <button 
+                onClick={() => navigate('/privacy')} 
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+              >
+                {t('footer.privacy')}
+              </button>
+              <button 
+                onClick={() => navigate('/terms')} 
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+              >
+                {t('footer.terms')}
+              </button>
             </div>
           </div>
           
@@ -171,7 +167,7 @@ export const Footer = () => {
           <div className="text-center mt-6">
             <div className="inline-flex items-center gap-2 text-gray-400 text-sm">
               <MapPin size={16} className="text-cyan-400" />
-              <span>Sirviendo a gig workers en todo Estados Unidos 🇺🇸</span>
+              <span>{t('footer.serving')} 🇺🇸</span>
             </div>
           </div>
         </div>
