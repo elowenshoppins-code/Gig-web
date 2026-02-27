@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
-import { Download, Smartphone, Apple } from 'lucide-react';
+import { Download, Smartphone, Apple, AlertCircle } from 'lucide-react';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export const DownloadSection = () => {
+  const [apkAvailable, setApkAvailable] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    checkApkAvailability();
+  }, []);
+
+  const checkApkAvailability = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/apk/apk-info`);
+      setApkAvailable(response.data.exists);
+    } catch (error) {
+      console.error('Error checking APK availability:', error);
+      setApkAvailable(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleDownloadAPK = () => {
-    // Placeholder for actual APK download
-    alert('La descarga de la APK estará disponible próximamente. Por favor, contacta con el equipo de GIG ZipFinder.');
+    if (apkAvailable) {
+      window.open(`${BACKEND_URL}/api/apk/download-apk`, '_blank');
+    } else {
+      alert('El APK no está disponible en este momento. Por favor, intenta más tarde.');
+    }
   };
 
   return (
@@ -41,14 +66,41 @@ export const DownloadSection = () => {
 
             {/* Download Buttons */}
             <div className="space-y-4 max-w-md mx-auto mb-8">
-              {/* APK Download - Available Now */}
-              <Button 
-                onClick={handleDownloadAPK}
-                className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-lg py-6 rounded-full btn-primary group"
-              >
-                <Download className="mr-2 group-hover:animate-bounce" size={24} />
-                Descargar APK para Android
-              </Button>
+              {/* APK Download - Available Now or Not */}
+              {loading ? (
+                <Button 
+                  disabled
+                  className="w-full bg-cyan-500/50 text-white font-bold text-lg py-6 rounded-full cursor-wait"
+                >
+                  Verificando disponibilidad...
+                </Button>
+              ) : apkAvailable ? (
+                <Button 
+                  onClick={handleDownloadAPK}
+                  className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-lg py-6 rounded-full btn-primary group"
+                >
+                  <Download className="mr-2 group-hover:animate-bounce" size={24} />
+                  Descargar APK para Android
+                </Button>
+              ) : (
+                <div className="space-y-2">
+                  <Button 
+                    disabled
+                    className="w-full bg-gray-500 text-white font-bold text-lg py-6 rounded-full cursor-not-allowed"
+                  >
+                    <Download className="mr-2" size={24} />
+                    APK No Disponible
+                  </Button>
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="text-yellow-400 flex-shrink-0 mt-0.5" size={16} />
+                      <p className="text-yellow-200 text-sm">
+                        El APK aún no ha sido cargado. Vuelve pronto.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Google Play - Coming Soon */}
               <div className="relative">
