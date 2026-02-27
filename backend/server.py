@@ -72,7 +72,6 @@ from routes.apk import router as apk_router
 # Include the router in the main app
 app.include_router(api_router)
 app.include_router(apk_router, prefix="/api/apk", tags=["apk"])
-app.include_router(apk_router, prefix="/api/apk", tags=["apk"])
 
 app.add_middleware(
     CORSMiddleware,
