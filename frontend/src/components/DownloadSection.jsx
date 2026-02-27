@@ -2,16 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Download, Smartphone, Apple, AlertCircle } from 'lucide-react';
 import axios from 'axios';
+import { trackAPKDownload, trackStoreClick } from '../utils/analytics';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export const DownloadSection = () => {
   const [apkAvailable, setApkAvailable] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [storeLinks, setStoreLinks] = useState({
+    google_play_url: null,
+    apple_store_url: null
+  });
 
   useEffect(() => {
     checkApkAvailability();
+    fetchStoreLinks();
   }, []);
+
+  const fetchStoreLinks = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/settings/store-links`);
+      setStoreLinks(response.data);
+    } catch (error) {
+      console.error('Error fetching store links:', error);
+    }
+  };
 
   const checkApkAvailability = async () => {
     try {
@@ -27,9 +42,17 @@ export const DownloadSection = () => {
 
   const handleDownloadAPK = () => {
     if (apkAvailable) {
+      trackAPKDownload();
       window.open(`${BACKEND_URL}/api/apk/download-apk`, '_blank');
     } else {
       alert('El APK no está disponible en este momento. Por favor, intenta más tarde.');
+    }
+  };
+
+  const handleStoreClick = (store, url) => {
+    if (url) {
+      trackStoreClick(store);
+      window.open(url, '_blank');
     }
   };
 
@@ -102,32 +125,44 @@ export const DownloadSection = () => {
                 </div>
               )}
 
-              {/* Google Play - Coming Soon */}
+              {/* Google Play - Coming Soon or Link */}
               <div className="relative">
                 <Button 
-                  disabled
-                  className="w-full bg-[#0f172a] border-2 border-cyan-500/30 text-gray-400 font-bold text-lg py-6 rounded-full cursor-not-allowed"
+                  onClick={() => handleStoreClick('Google Play', storeLinks.google_play_url)}
+                  disabled={!storeLinks.google_play_url}
+                  className={`w-full ${storeLinks.google_play_url ? 'bg-[#01875f] hover:bg-[#016d4c]' : 'bg-[#0f172a] cursor-not-allowed'} border-2 border-cyan-500/30 text-white font-bold text-lg py-6 rounded-full flex items-center justify-center gap-2`}
                 >
-                  <Smartphone className="mr-2" size={24} />
-                  Google Play Store
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                    alt="Google Play"
+                    className="h-10 w-auto"
+                  />
                 </Button>
-                <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                  Próximamente
-                </span>
+                {!storeLinks.google_play_url && (
+                  <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Próximamente
+                  </span>
+                )}
               </div>
 
-              {/* App Store - Coming Soon */}
+              {/* App Store - Coming Soon or Link */}
               <div className="relative">
                 <Button 
-                  disabled
-                  className="w-full bg-[#0f172a] border-2 border-cyan-500/30 text-gray-400 font-bold text-lg py-6 rounded-full cursor-not-allowed"
+                  onClick={() => handleStoreClick('App Store', storeLinks.apple_store_url)}
+                  disabled={!storeLinks.apple_store_url}
+                  className={`w-full ${storeLinks.apple_store_url ? 'bg-black hover:bg-gray-900' : 'bg-[#0f172a] cursor-not-allowed'} border-2 border-cyan-500/30 text-white font-bold text-lg py-6 rounded-full flex items-center justify-center gap-2`}
                 >
-                  <Apple className="mr-2" size={24} />
-                  Apple App Store
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
+                    alt="App Store"
+                    className="h-10 w-auto"
+                  />
                 </Button>
-                <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                  Próximamente
-                </span>
+                {!storeLinks.apple_store_url && (
+                  <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Próximamente
+                  </span>
+                )}
               </div>
             </div>
 
