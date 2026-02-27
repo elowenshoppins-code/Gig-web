@@ -9,7 +9,6 @@ from pydantic import BaseModel, Field, ConfigDict
 from typing import List
 import uuid
 from datetime import datetime, timezone
-from routes.apk import router as apk_router
 
 
 ROOT_DIR = Path(__file__).parent
@@ -66,6 +65,9 @@ async def get_status_checks():
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
     
     return status_checks
+
+# Import APK router after app is created to avoid circular imports
+from routes.apk import router as apk_router
 
 # Include the router in the main app
 app.include_router(api_router)
