@@ -8,10 +8,12 @@ import { HowItWorks } from "./components/HowItWorks";
 import { Pricing } from "./components/Pricing";
 import { DownloadSection } from "./components/DownloadSection";
 import { FAQ } from "./components/FAQ";
+import { HighDemandNotice } from "./components/HighDemandNotice";
 import { Footer } from "./components/Footer";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
 import { AdminUpload } from "./components/AdminUpload";
+import { GoogleAnalytics } from "./utils/analytics";
 
 const HomePage = () => (
   <>
@@ -21,12 +23,14 @@ const HomePage = () => (
     <Pricing />
     <DownloadSection />
     <FAQ />
+    <HighDemandNotice />
   </>
 );
 
 function App() {
   return (
     <BrowserRouter>
+      <GoogleAnalytics />
       <div className="App">
         <Header />
         <main>
