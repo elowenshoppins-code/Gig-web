@@ -41,7 +41,7 @@
 ```javascript
 // Archivo: /app/frontend/src/utils/analytics.js
 // Línea 6: Reemplaza 'G-XXXXXXXXXX' con tu ID real
-const TRACKING_ID = 'G-TU-ID-AQUI';
+const TRACKING_ID = 'G-TU-ID-AQUÍ';
 ```
 
 ### Lo que se Trackea Automáticamente:

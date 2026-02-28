@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: '¿Realmente evito las listas de espera?',
-    answer: 'Nuestro sistema de IA identifica códigos ZIP con alta probabilidad de disponibilidad inmediata. Sin embargo, NO podemos garantizar 100% de aceptación ya que las apps cambian constantemente sus criterios y la demanda es muy alta. SUGERIMOS códigos basados en análisis continuo, pero los resultados pueden variar. Por la alta demanda, no garantizamos que los códigos sugeridos permanezcan abiertos o funcionen en todos los casos. Somos una herramienta de ayuda, no socios de las apps mencionadas.'
+    answer: 'Nuestro sistema de IA identifica códigos ZIP con alta probabilidad de disponibilidad inmediata. Sin embargo, NO podemos garantizar 100% de aceptación ya que las apps cambian constantemente sus criterios y la demanda es muy alta. SUGERIMOS códigos basados en análisis continuo, pero los resultados pueden variar. Debido a la alta demanda, no garantizamos que los códigos sugeridos permanezcan abiertos o funcionen en todos los casos. Somos una herramienta de ayuda, no socios de las apps mencionadas.'
   },
   {
     question: '¿La app está disponible para iOS y Android?',

@@ -274,7 +274,7 @@ const resources = {
       "faq.subtitle": "Todo lo que necesitas saber sobre GIG ZipFinder",
       
       "faq.q1": "¿Cómo funciona el escaneo de códigos ZIP?",
-      "faq.a1": "Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos utilizando parámetros y algoritmos avanzados. Analizamos la disponibilidad en Instacart, DoorDash y Spark Driver para sugerir las zonas con mayor probabilidad de aceptación. Sin embargo, por la alta demanda y cambios constantes en las apps, no garantizamos que los códigos sugeridos permanezcan disponibles o funcionen en todos los casos.",
+      "faq.a1": "Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos utilizando parámetros y algoritmos avanzados. Analizamos la disponibilidad en Instacart, DoorDash y Spark Driver para sugerir las zonas con mayor probabilidad de aceptación. Sin embargo, debido a la alta demanda y cambios constantes en las apps, no garantizamos que los códigos sugeridos permanezcan disponibles o funcionen en todos los casos.",
       
       "faq.q2": "¿El número de teléfono es realmente gratis?",
       "faq.a2": "¡Sí! Te enseñamos cómo obtener un número de teléfono completamente gratuito sin ninguna renta mensual. Este número puede recibir llamadas y mensajes de texto (SMS), lo cual es perfecto para registrarte en todas las aplicaciones de gig que necesites sin costo adicional.",

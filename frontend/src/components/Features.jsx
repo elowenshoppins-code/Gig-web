@@ -5,7 +5,7 @@ const features = [
   {
     icon: MapPin,
     title: 'IA Sugiere ZIP Codes',
-    description: 'Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos con parámetros y algoritmos avanzados para SUGERIR disponibilidad. Por la alta demanda, NO garantizamos que los códigos duren abiertos mucho tiempo.',
+    description: 'Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos con parámetros y algoritmos avanzados para SUGERIR disponibilidad. Debido a la alta demanda, NO garantizamos que los códigos duren abiertos mucho tiempo.',
     color: 'cyan',
     image: 'https://images.unsplash.com/photo-1584254520678-31fe4dce5306?w=500&h=400&fit=crop'
   },
