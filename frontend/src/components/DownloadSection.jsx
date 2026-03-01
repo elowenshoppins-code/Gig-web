@@ -142,7 +142,7 @@ export const DownloadSection = () => {
                 </Button>
                 {!storeLinks.google_play_url && (
                   <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    Próximamente
+                    {t('download.comingSoon')}
                   </span>
                 )}
               </div>
@@ -162,7 +162,7 @@ export const DownloadSection = () => {
                 </Button>
                 {!storeLinks.apple_store_url && (
                   <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    Próximamente
+                    {t('download.comingSoon')}
                   </span>
                 )}
               </div>
@@ -172,12 +172,12 @@ export const DownloadSection = () => {
             <div className="border-t border-cyan-500/20 pt-6">
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-cyan-400 font-bold text-xl mb-1">Gratis</div>
-                  <div className="text-gray-400 text-sm">Descarga gratuita</div>
+                  <div className="text-cyan-400 font-bold text-xl mb-1">{t('download.free')}</div>
+                  <div className="text-gray-400 text-sm">{t('download.freeDownload')}</div>
                 </div>
                 <div>
                   <div className="text-cyan-400 font-bold text-xl mb-1">4.8★</div>
-                  <div className="text-gray-400 text-sm">Calificación usuarios</div>
+                  <div className="text-gray-400 text-sm">{t('download.userRating')}</div>
                 </div>
                 <div>
                   <div className="text-cyan-400 font-bold text-xl mb-1">10MB</div>
