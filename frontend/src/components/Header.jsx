@@ -63,7 +63,7 @@ export const Header = () => {
                 <span className="text-cyan-400">GIG</span>
                 <span className="text-white">ZipFinder</span>
               </span>
-              <span className="text-[10px] sm:text-xs text-cyan-400/80 -mt-1">Find Your Gig</span>
+              <span className="text-[10px] sm:text-xs text-cyan-400/80 -mt-1">{t('nav.tagline')}</span>
             </div>
           </div>
 
