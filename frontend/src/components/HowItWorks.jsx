@@ -41,11 +41,11 @@ export const HowItWorks = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Cómo </span>
-            <span className="text-gradient">Funciona</span>
+            <span className="text-white">{t('howItWorks.title')} </span>
+            <span className="text-gradient">{t('howItWorks.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-gray-300">
-            En solo 4 pasos simples, estarás listo para empezar a trabajar en las mejores zonas
+            {t('howItWorks.subtitle')}
           </p>
         </div>
 
