@@ -1,6 +1,5 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Translations
 const resources = {
@@ -490,16 +489,11 @@ const resources = {
 };
 
 i18n
-  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'es', // Default language
-    fallbackLng: 'es', // Changed to Spanish
-    detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage']
-    },
+    lng: 'es', // Always start in Spanish
+    fallbackLng: 'es',
     interpolation: {
       escapeValue: false
     }
