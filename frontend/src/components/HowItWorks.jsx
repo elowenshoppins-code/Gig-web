@@ -1,38 +1,40 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Check, Search, Download, Rocket } from 'lucide-react';
 
-const steps = [
-  {
-    number: '01',
-    icon: Download,
-    title: 'Descarga GIG ZipFinder',
-    description: 'Descarga la APK directamente desde nuestra página web. Compatible con Android e iOS próximamente.',
-    color: 'cyan'
-  },
-  {
-    number: '02',
-    icon: Search,
-    title: 'Selecciona tu App de Gig',
-    description: 'Elige entre Instacart, DoorDash o Spark Driver. Nuestra IA ya escaneó los mejores ZIP codes SUGERIDOS.',
-    color: 'green'
-  },
-  {
-    number: '03',
-    icon: Check,
-    title: 'Sigue la Guía Paso a Paso',
-    description: 'Usa nuestras guías detalladas y aprende cómo obtener un número de teléfono gratuito para completar tu registro sin problemas.',
-    color: 'cyan'
-  },
-  {
-    number: '04',
-    icon: Rocket,
-    title: 'Comienza a Ganar',
-    description: '¡Listo! Empieza a trabajar en zonas SUGERIDAS y maximiza tus ganancias. Resultados pueden variar.',
-    color: 'green'
-  }
-];
-
 export const HowItWorks = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      number: '01',
+      icon: Download,
+      title: t('howItWorks.step1.title'),
+      description: t('howItWorks.step1.description'),
+      color: 'cyan'
+    },
+    {
+      number: '02',
+      icon: Search,
+      title: t('howItWorks.step2.title'),
+      description: t('howItWorks.step2.description'),
+      color: 'green'
+    },
+    {
+      number: '03',
+      icon: Check,
+      title: t('howItWorks.step3.title'),
+      description: t('howItWorks.step3.description'),
+      color: 'cyan'
+    },
+    {
+      number: '04',
+      icon: Rocket,
+      title: t('howItWorks.step4.title'),
+      description: t('howItWorks.step4.description'),
+      color: 'green'
+    }
+  ];
   return (
     <section id="how-it-works" className="py-20 lg:py-32 relative overflow-hidden bg-gradient-to-b from-transparent to-[#0f172a]/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
