@@ -101,23 +101,23 @@ export const Pricing = () => {
           <div className="flex flex-wrap justify-center items-center gap-6">
             <div className="bg-white px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" 
+                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" 
                 alt="Visa" 
-                className="h-6 w-auto"
+                className="h-8 w-auto"
               />
             </div>
-            <div className="bg-[#1e293b] px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
+            <div className="bg-white px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" 
                 alt="Mastercard" 
                 className="h-8 w-auto"
               />
             </div>
-            <div className="bg-[#1e293b] px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
+            <div className="bg-white px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" 
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" 
                 alt="American Express" 
-                className="h-7 w-auto"
+                className="h-8 w-auto"
               />
             </div>
           </div>
