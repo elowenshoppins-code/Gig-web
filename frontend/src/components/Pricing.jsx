@@ -101,23 +101,25 @@ export const Pricing = () => {
           <div className="flex flex-wrap justify-center items-center gap-6">
             <div className="bg-white px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visa.svg" 
                 alt="Visa" 
                 className="h-8 w-auto"
+                style={{ filter: 'invert(16%) sepia(93%) saturate(4879%) hue-rotate(212deg) brightness(92%) contrast(104%)' }}
               />
             </div>
             <div className="bg-white px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mastercard.svg" 
                 alt="Mastercard" 
                 className="h-8 w-auto"
               />
             </div>
             <div className="bg-white px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" 
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/americanexpress.svg" 
                 alt="American Express" 
                 className="h-8 w-auto"
+                style={{ filter: 'invert(35%) sepia(94%) saturate(1849%) hue-rotate(183deg) brightness(95%) contrast(101%)' }}
               />
             </div>
           </div>
