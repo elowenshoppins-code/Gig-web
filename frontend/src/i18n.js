@@ -172,6 +172,7 @@ const resources = {
       "nav.pricing": "Precios",
       "nav.faq": "FAQ",
       "nav.downloadAPK": "Descargar APK",
+      "nav.tagline": "Encuentra tu Gig",
       
       // Hero
       "hero.badge": "Maximiza tus ganancias en delivery",
