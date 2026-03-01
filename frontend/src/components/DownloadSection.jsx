@@ -81,11 +81,11 @@ export const DownloadSection = () => {
                 className="w-24 h-24 mx-auto mb-6 animate-float"
               />
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                <span className="text-white">Descarga </span>
-                <span className="text-gradient">GIG ZipFinder</span>
+                <span className="text-white">{t('download.title')} </span>
+                <span className="text-gradient">{t('download.titleHighlight')}</span>
               </h2>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Obtén acceso inmediato a los mejores códigos ZIP <span className="text-yellow-400 font-semibold">SUGERIDOS</span> y comienza a maximizar tus ganancias hoy mismo
+                {t('download.subtitle')}
               </p>
             </div>
 
@@ -97,7 +97,7 @@ export const DownloadSection = () => {
                   disabled
                   className="w-full bg-cyan-500/50 text-white font-bold text-lg py-6 rounded-full cursor-wait"
                 >
-                  Verificando disponibilidad...
+                  {t('download.checking')}
                 </Button>
               ) : apkAvailable ? (
                 <Button 
@@ -105,7 +105,7 @@ export const DownloadSection = () => {
                   className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-lg py-6 rounded-full btn-primary group"
                 >
                   <Download className="mr-2 group-hover:animate-bounce" size={24} />
-                  Descargar APK para Android
+                  {t('download.downloadAPK')}
                 </Button>
               ) : (
                 <div className="space-y-2">
@@ -114,13 +114,13 @@ export const DownloadSection = () => {
                     className="w-full bg-gray-500 text-white font-bold text-lg py-6 rounded-full cursor-not-allowed"
                   >
                     <Download className="mr-2" size={24} />
-                    APK No Disponible
+                    {t('download.apkNotAvailable')}
                   </Button>
                   <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3">
                     <div className="flex items-start gap-2">
                       <AlertCircle className="text-yellow-400 flex-shrink-0 mt-0.5" size={16} />
                       <p className="text-yellow-200 text-sm">
-                        El APK aún no ha sido cargado. Vuelve pronto.
+                        {t('download.apkComingSoon')}
                       </p>
                     </div>
                   </div>
