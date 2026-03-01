@@ -43,7 +43,7 @@ export const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="https://customer-assets.emergentagent.com/job_gif-tools-central/artifacts/n4fk7fqx_icon_192x192.png" 
+                src="/icon_512x512.png" 
                 alt="GIG ZipFinder" 
                 className="h-12 w-12"
               />

@@ -54,7 +54,7 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={goHome}>
             <img 
-              src="https://customer-assets.emergentagent.com/job_gif-tools-central/artifacts/n4fk7fqx_icon_192x192.png" 
+              src="/icon_512x512.png" 
               alt="GIG ZipFinder" 
               className="h-10 w-10 sm:h-12 sm:w-12"
             />

@@ -74,7 +74,7 @@ export const DownloadSection = () => {
           <div className="bg-[#1e293b]/80 backdrop-blur-md rounded-3xl p-8 lg:p-12 border border-cyan-500/30 card-glow">
             <div className="mb-8">
               <img 
-                src="https://customer-assets.emergentagent.com/job_gif-tools-central/artifacts/n4fk7fqx_icon_192x192.png"
+                src="/icon_512x512.png"
                 alt="GIG ZipFinder Logo"
                 className="w-24 h-24 mx-auto mb-6 animate-float"
               />
