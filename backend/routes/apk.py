@@ -7,8 +7,10 @@ import shutil
 router = APIRouter()
 
 # Directory to store APK files
-APK_DIR = Path("/app/backend/apk_files")
-APK_DIR.mkdir(exist_ok=True)
+# Use relative path from the current file's parent directory
+BACKEND_DIR = Path(__file__).parent.parent
+APK_DIR = BACKEND_DIR / "apk_files"
+APK_DIR.mkdir(parents=True, exist_ok=True)
 
 APK_FILE_PATH = APK_DIR / "gigzipfinder.apk"
 
