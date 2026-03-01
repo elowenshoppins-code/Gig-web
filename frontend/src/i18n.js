@@ -11,6 +11,7 @@ const resources = {
       "nav.pricing": "Pricing",
       "nav.faq": "FAQ",
       "nav.downloadAPK": "Download APK",
+      "nav.tagline": "Find Your Gig",
       
       // Hero
       "hero.badge": "Maximize your delivery earnings",
