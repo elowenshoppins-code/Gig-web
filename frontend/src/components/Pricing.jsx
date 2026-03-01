@@ -1,14 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Check, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 
 export const Pricing = () => {
+  const { t } = useTranslation();
+  
   const features = [
-    'Te sugiere GRATIS 5 códigos postales con alta disponibilidad',
-    'Guía completa paso a paso para abrir cuenta',
-    'Te enseñamos cómo obtener un número de teléfono gratis',
-    'Actualizaciones de IA cada 48 horas',
-    'Aviso importante sobre disponibilidad'
+    t('pricing.feature1'),
+    t('pricing.feature2'),
+    t('pricing.feature3'),
+    t('pricing.feature4'),
+    t('pricing.feature5')
   ];
 
   const scrollToDownload = () => {
