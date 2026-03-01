@@ -7,9 +7,11 @@ import os
 
 router = APIRouter()
 
-# Configuration file
-CONFIG_FILE = Path("/app/backend/config/app_settings.json")
-CONFIG_FILE.parent.mkdir(exist_ok=True)
+# Configuration file - Use relative path
+BACKEND_DIR = Path(__file__).parent.parent
+CONFIG_DIR = BACKEND_DIR / "config"
+CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+CONFIG_FILE = CONFIG_DIR / "app_settings.json"
 
 class StoreLinks(BaseModel):
     google_play_url: Optional[HttpUrl] = None
