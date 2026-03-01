@@ -58,11 +58,11 @@ export const Features = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Todo lo que Necesitas en</span>{' '}
-            <span className="text-gradient">Una Sola App</span>
+            <span className="text-white">{t('features.title.everything')}</span>{' '}
+            <span className="text-gradient">{t('features.title.oneApp')}</span>
           </h2>
           <p className="text-lg text-gray-300">
-            GIG ZipFinder te proporciona todas las herramientas necesarias para tener éxito en el mundo del delivery y gig economy
+            {t('features.subtitle')}
           </p>
         </div>
 
