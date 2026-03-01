@@ -28,11 +28,11 @@ export const FAQ = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Preguntas </span>
-            <span className="text-gradient">Frecuentes</span>
+            <span className="text-white">{t('faq.title')} </span>
+            <span className="text-gradient">{t('faq.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-gray-300">
-            Todo lo que necesitas saber sobre GIG ZipFinder
+            {t('faq.subtitle')}
           </p>
         </div>
 
