@@ -1,49 +1,51 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, Phone, BookOpen, Zap, Shield, TrendingUp } from 'lucide-react';
 
-const features = [
-  {
-    icon: MapPin,
-    title: 'IA Sugiere ZIP Codes',
-    description: 'Nuestra inteligencia artificial escanea cada 48 horas todos los códigos postales en Estados Unidos con parámetros y algoritmos avanzados para SUGERIR disponibilidad. Debido a la alta demanda, NO garantizamos que los códigos duren abiertos mucho tiempo.',
-    color: 'cyan',
-    image: 'https://images.unsplash.com/photo-1584254520678-31fe4dce5306?w=500&h=400&fit=crop'
-  },
-  {
-    icon: Phone,
-    title: 'Te Enseñamos Número Gratis',
-    description: 'Te enseñamos cómo obtener un número de teléfono completamente gratis sin mensualidades que recibe llamadas y mensajes de texto para registrarte en todas las apps.',
-    color: 'green',
-    image: 'https://images.unsplash.com/photo-1609162554108-6490759499ef?w=500&h=400&fit=crop'
-  },
-  {
-    icon: BookOpen,
-    title: 'Guías Paso a Paso',
-    description: 'Te ayudamos a abrir aplicaciones de gig paso a paso. Instrucciones detalladas para Instacart, DoorDash, Spark Driver y más.',
-    color: 'cyan',
-    image: 'https://images.unsplash.com/photo-1753939440535-f530718250ae?w=500&h=400&fit=crop'
-  },
-  {
-    icon: Zap,
-    title: 'Sugerencias Inmediatas',
-    description: 'Accede a códigos ZIP SUGERIDOS con probabilidad de disponibilidad. *Sujeto a disponibilidad por alta demanda de descarga.',
-    color: 'green',
-  },
-  {
-    icon: Shield,
-    title: 'Seguro y Confiable',
-    description: 'Todos los números y datos están protegidos. Trabajamos con las mejores prácticas de seguridad para mantener tu información privada. NO almacenamos ni guardamos datos de pago o tarjetas de crédito.',
-    color: 'cyan',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Maximiza Ganancias',
-    description: 'Encuentra las mejores oportunidades en las zonas con mayor demanda y aumenta tus ingresos significativamente.',
-    color: 'green',
-  }
-];
-
 export const Features = () => {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: MapPin,
+      title: t('features.ai.title'),
+      description: t('features.ai.description'),
+      color: 'cyan',
+      image: 'https://images.unsplash.com/photo-1584254520678-31fe4dce5306?w=500&h=400&fit=crop'
+    },
+    {
+      icon: Phone,
+      title: t('features.phone.title'),
+      description: t('features.phone.description'),
+      color: 'green',
+      image: 'https://images.unsplash.com/photo-1609162554108-6490759499ef?w=500&h=400&fit=crop'
+    },
+    {
+      icon: BookOpen,
+      title: t('features.guides.title'),
+      description: t('features.guides.description'),
+      color: 'cyan',
+      image: 'https://images.unsplash.com/photo-1753939440535-f530718250ae?w=500&h=400&fit=crop'
+    },
+    {
+      icon: Zap,
+      title: t('features.instant.title'),
+      description: t('features.instant.description'),
+      color: 'green',
+    },
+    {
+      icon: Shield,
+      title: t('features.secure.title'),
+      description: t('features.secure.description'),
+      color: 'cyan',
+    },
+    {
+      icon: TrendingUp,
+      title: t('features.maximize.title'),
+      description: t('features.maximize.description'),
+      color: 'green',
+    }
+  ];
   return (
     <section id="features" className="py-20 lg:py-32 relative overflow-hidden">
       {/* Background decoration */}
