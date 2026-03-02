@@ -134,6 +134,15 @@ export const Footer = () => {
                   {t('nav.faq')}
                 </button>
               </li>
+              <li>
+                <button 
+                  onClick={() => navigate(getInstallGuideUrl())}
+                  className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center gap-2"
+                >
+                  <BookOpen size={16} />
+                  {t('download.installGuide')}
+                </button>
+              </li>
             </ul>
           </div>
 
