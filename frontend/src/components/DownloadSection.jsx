@@ -181,7 +181,7 @@ export const DownloadSection = () => {
                 </div>
                 <div>
                   <div className="text-cyan-400 font-bold text-xl mb-1">10MB</div>
-                  <div className="text-gray-400 text-sm">Tamaño de archivo</div>
+                  <div className="text-gray-400 text-sm">{t('download.fileSize')}</div>
                 </div>
               </div>
             </div>
@@ -189,7 +189,7 @@ export const DownloadSection = () => {
             {/* Requirements */}
             <div className="mt-8 bg-[#0f172a] rounded-xl p-4 border border-cyan-500/20">
               <p className="text-gray-300 text-sm">
-                <span className="text-cyan-400 font-semibold">Requisitos:</span> Android 8.0 o superior • iOS 13.0 o superior (próximamente)
+                <span className="text-cyan-400 font-semibold">{t('download.requirements')}</span> {t('download.requirementsText')}
               </p>
             </div>
           </div>
