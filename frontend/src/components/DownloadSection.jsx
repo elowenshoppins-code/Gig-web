@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
-import { Download, Smartphone, Apple, AlertCircle } from 'lucide-react';
+import { Download, Smartphone, Apple, AlertCircle, BookOpen } from 'lucide-react';
 import axios from 'axios';
 import { trackAPKDownload, trackStoreClick } from '../utils/analytics';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export const DownloadSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [apkAvailable, setApkAvailable] = useState(false);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('direct');
