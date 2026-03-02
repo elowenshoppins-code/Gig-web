@@ -263,11 +263,17 @@ const resources = {
       "features.guides.title": "Guías Paso a Paso",
       "features.guides.description": "Te ayudamos a abrir aplicaciones de gig paso a paso. Instrucciones detalladas para Instacart, DoorDash, Spark Driver y más.",
       
+      "features.instant.title": "Sugerencias Instantáneas",
+      "features.instant.description": "Obtén acceso inmediato a códigos ZIP sugeridos con alta disponibilidad y comienza a trabajar de inmediato.",
+      
       "features.immediate.title": "Sugerencias Inmediatas",
       "features.immediate.description": "Accede a códigos ZIP sugeridos con alta probabilidad de disponibilidad y comienza a trabajar inmediatamente.",
       
       "features.secure.title": "Seguro y Confiable",
       "features.secure.description": "Todos los números y datos están protegidos. Trabajamos con las mejores prácticas de seguridad para mantener tu información privada. No almacenamos ni guardamos datos de pago o tarjetas.",
+      
+      "features.maximize.title": "Maximiza Ganancias",
+      "features.maximize.description": "Encuentra las mejores oportunidades en las zonas con mayor demanda y aumenta tus ingresos significativamente.",
       
       "features.earnings.title": "Maximiza Ganancias",
       "features.earnings.description": "Encuentra las mejores oportunidades en las zonas con mayor demanda y aumenta tus ingresos significativamente.",
