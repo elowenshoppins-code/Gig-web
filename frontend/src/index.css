@@ -99,14 +99,54 @@ code {
   }
 }
 
-/* Hide Emergent branding */
+/* Hide Emergent branding - Multiple selectors for maximum coverage */
 div[class*="emergent"],
 div[class*="Emergent"],
 a[href*="emergent"],
 a[href*="Emergent"],
 [class*="made-with"],
-[class*="powered-by"] {
+[class*="made_with"],
+[class*="Made"],
+[class*="powered-by"],
+[class*="powered_by"],
+button[class*="emergent"],
+span[class*="emergent"],
+/* Target by content */
+a[href*="emergentagent.com"],
+a[href*="emergent.sh"],
+/* Target by position */
+div[style*="position: fixed"][style*="bottom"],
+div[style*="position: fixed"][style*="z-index"],
+/* Target common badge positions */
+div[style*="bottom: 20px"],
+div[style*="bottom: 10px"],
+div[style*="right: 20px"],
+/* Specific Emergent badge classes */
+[data-emergent],
+[data-badge],
+#emergent-badge,
+.emergent-badge,
+.emergent-branding,
+/* Target iframes that might contain branding */
+iframe[src*="emergent"],
+/* Target by text content using attribute selectors */
+*[class*="badge"],
+*[id*="badge"] {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Additional aggressive hiding for any remaining badges */
+body > div:last-child:not(#root),
+body > div[style*="z-index: 999"],
+body > div[style*="z-index: 9999"],
+body > a[style*="position: fixed"] {
+  display: none !important;
 }
