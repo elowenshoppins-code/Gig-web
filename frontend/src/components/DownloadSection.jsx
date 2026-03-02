@@ -33,8 +33,8 @@ export const DownloadSection = () => {
 
   const checkApkAvailability = async () => {
     try {
-      const response = await axios.get(`${BACKEND_URL}/api/apk/latest`);
-      setApkAvailable(!!response.data);
+      const response = await axios.get(`${BACKEND_URL}/api/apk/apk-info`);
+      setApkAvailable(response.data.exists);
     } catch (error) {
       console.error('Error checking APK:', error);
       setApkAvailable(false);
@@ -46,7 +46,7 @@ export const DownloadSection = () => {
   const handleDownloadAPK = async () => {
     try {
       trackAPKDownload();
-      window.location.href = `${BACKEND_URL}/api/apk/download`;
+      window.location.href = `${BACKEND_URL}/api/apk/download-apk`;
     } catch (error) {
       console.error('Error downloading APK:', error);
     }
