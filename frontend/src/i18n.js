@@ -236,10 +236,10 @@ const resources = {
       // Pricing
       "pricing.title": "Precios",
       "pricing.title2": "Transparentes",
-      "pricing.subtitle": "Pago único por app. Sin suscripciones. Sin sorpresas.",
+      "pricing.subtitle": "Pago de $5 por app. Sin suscripciones. Sin sorpresas.",
       "pricing.badge": "OFERTA DE LANZAMIENTO",
       "pricing.perApp": "Pago por App",
-      "pricing.oneTime": "Pago único • Sin rentas mensuales",
+      "pricing.oneTime": "Pago de $5 • Sin rentas mensuales",
       "pricing.includes": "Tu compra incluye:",
       
       "pricing.feature1": "Te sugiere GRATIS 5 códigos postales con alta disponibilidad",
@@ -287,7 +287,7 @@ const resources = {
       "faq.a3": "Cada guía incluye instrucciones detalladas y específicas para abrir tu cuenta en la aplicación seleccionada (Instacart, DoorDash o Spark Driver). Te mostramos exactamente qué información necesitas, cómo llenar cada campo, qué documentos preparar, y te enseñamos cómo obtener un número de teléfono gratis. Además, te sugerimos los mejores códigos ZIP para usar basados en nuestro análisis de IA.",
       
       "faq.q4": "¿Cuánto cuesta usar GIG ZipFinder?",
-      "faq.a4": "GIG ZipFinder cuesta $5.00 USD por cada aplicación que desees abrir. Es un pago único, sin suscripciones ni rentas mensuales. Por ese precio obtienes: 5 códigos postales sugeridos con alto potencial, guía completa paso a paso, te enseñamos cómo obtener un número de teléfono gratis, y acceso a actualizaciones de nuestra IA cada 48 horas.",
+      "faq.a4": "GIG ZipFinder cuesta $5.00 USD por cada aplicación que desees abrir. Sin suscripciones ni rentas mensuales. Por ese precio obtienes: 5 códigos postales SUGERIDOS con alto potencial, guía completa paso a paso, te enseñamos cómo obtener un número de teléfono gratis, y acceso a actualizaciones de nuestra IA cada 48 horas.",
       
       "faq.q5": "¿En qué apps funciona GIG ZipFinder?",
       "faq.a5": "Actualmente GIG ZipFinder es compatible con las tres principales aplicaciones de delivery: Instacart (compras y entrega de comestibles), DoorDash (entrega de comida y abarrotes), y Spark Driver (servicio de entrega de Walmart). Estamos trabajando para agregar más aplicaciones próximamente.",
