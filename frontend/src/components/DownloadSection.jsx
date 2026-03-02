@@ -88,36 +88,39 @@ export const DownloadSection = () => {
             <div className="flex gap-2 mb-8 border-b border-cyan-500/20 overflow-x-auto">
               <button
                 onClick={() => setActiveTab('direct')}
-                className={`flex-1 py-4 px-6 font-semibold transition-all whitespace-nowrap ${
+                className={`flex-1 py-3 px-3 sm:px-6 sm:py-4 font-semibold transition-all whitespace-nowrap text-sm sm:text-base ${
                   activeTab === 'direct'
                     ? 'text-cyan-400 border-b-2 border-cyan-400'
                     : 'text-gray-400 hover:text-cyan-400'
                 }`}
               >
-                <Download className="inline-block mr-2" size={20} />
-                Descarga Directa
+                <Download className="inline-block mr-1 sm:mr-2" size={18} />
+                <span className="hidden sm:inline">Descarga Directa</span>
+                <span className="sm:hidden">Directa</span>
               </button>
               <button
                 onClick={() => setActiveTab('google')}
-                className={`flex-1 py-4 px-6 font-semibold transition-all whitespace-nowrap ${
+                className={`flex-1 py-3 px-3 sm:px-6 sm:py-4 font-semibold transition-all whitespace-nowrap text-sm sm:text-base ${
                   activeTab === 'google'
                     ? 'text-cyan-400 border-b-2 border-cyan-400'
                     : 'text-gray-400 hover:text-cyan-400'
                 }`}
               >
-                <Smartphone className="inline-block mr-2" size={20} />
-                Google Play
+                <Smartphone className="inline-block mr-1 sm:mr-2" size={18} />
+                <span className="hidden sm:inline">Google Play</span>
+                <span className="sm:hidden">Google</span>
               </button>
               <button
                 onClick={() => setActiveTab('apple')}
-                className={`flex-1 py-4 px-6 font-semibold transition-all whitespace-nowrap ${
+                className={`flex-1 py-3 px-3 sm:px-6 sm:py-4 font-semibold transition-all whitespace-nowrap text-sm sm:text-base ${
                   activeTab === 'apple'
                     ? 'text-cyan-400 border-b-2 border-cyan-400'
                     : 'text-gray-400 hover:text-cyan-400'
                 }`}
               >
-                <Apple className="inline-block mr-2" size={20} />
-                App Store
+                <Apple className="inline-block mr-1 sm:mr-2" size={18} />
+                <span className="hidden sm:inline">App Store</span>
+                <span className="sm:hidden">Apple</span>
               </button>
             </div>
 
