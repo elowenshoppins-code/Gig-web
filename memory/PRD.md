@@ -99,7 +99,7 @@ GIG ZipFinder es una herramienta para gig workers que ayuda a:
 - FAQ: Actualizadas respuestas enfatizando que solo SUGERIMOS, no garantizamos
 
 ## Estado Actual
-✅ **Landing Page Multilenguaje Completada con Sistema de APK**
+✅ **Landing Page Multilenguaje Completada con Sistema de APK y Manual de Instalación**
 
 ### ✅ Completado
 
