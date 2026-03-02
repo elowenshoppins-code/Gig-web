@@ -33,7 +33,7 @@ export const Pricing = () => {
             <span className="text-gradient">Transparentes</span>
           </h2>
           <p className="text-lg text-gray-300">
-            Pago único por app. Sin suscripciones. Sin sorpresas.
+            {t('pricing.subtitle')}
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export const Pricing = () => {
                   <span className="text-2xl text-gray-400">USD</span>
                 </div>
                 <div className="text-cyan-400 font-medium">
-                  Pago único • Sin rentas mensuales
+                  {t('pricing.oneTime')}
                 </div>
               </div>
 
