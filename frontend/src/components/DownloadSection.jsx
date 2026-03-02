@@ -151,34 +151,34 @@ export const DownloadSection = () => {
                     <>
                       <Button 
                         onClick={handleDownloadAPK}
-                        className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-lg py-6 rounded-full btn-primary group"
+                        className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-base sm:text-lg py-5 sm:py-6 rounded-full btn-primary group"
                       >
-                        <Download className="mr-2 group-hover:animate-bounce" size={24} />
-                        {t('download.downloadAPK')} (96MB)
+                        <Download className="mr-2 group-hover:animate-bounce flex-shrink-0" size={20} />
+                        <span className="truncate">{t('download.downloadAPK')} (96MB)</span>
                       </Button>
                       
                       {/* Install Guide Button */}
                       <Button 
                         onClick={() => navigate(getInstallGuideUrl())}
                         variant="outline"
-                        className="w-full border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/20 font-bold text-base py-5 rounded-full"
+                        className="w-full border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/20 font-bold text-sm sm:text-base py-4 sm:py-5 rounded-full"
                       >
-                        <BookOpen className="mr-2" size={20} />
-                        {t('download.installGuide')}
+                        <BookOpen className="mr-2 flex-shrink-0" size={18} />
+                        <span className="truncate">{t('download.installGuide')}</span>
                       </Button>
 
-                      <div className="grid grid-cols-3 gap-4 text-center text-sm">
+                      <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center text-xs sm:text-sm">
                         <div>
                           <div className="text-cyan-400 font-bold">✓ Gratis</div>
-                          <div className="text-gray-500">Sin costo</div>
+                          <div className="text-gray-500 text-xs">Sin costo</div>
                         </div>
                         <div>
                           <div className="text-cyan-400 font-bold">✓ Seguro</div>
-                          <div className="text-gray-500">Verificado</div>
+                          <div className="text-gray-500 text-xs">Verificado</div>
                         </div>
                         <div>
                           <div className="text-cyan-400 font-bold">✓ Directo</div>
-                          <div className="text-gray-500">Sin esperas</div>
+                          <div className="text-gray-500 text-xs">Sin esperas</div>
                         </div>
                       </div>
                     </>
