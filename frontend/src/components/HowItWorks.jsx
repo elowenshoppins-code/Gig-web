@@ -42,7 +42,7 @@ export const HowItWorks = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-white">{t('howItWorks.title')} </span>
-            <span className="text-gradient">{t('howItWorks.titleHighlight')}</span>
+            <span className="text-gradient">{t('howItWorks.title2')}</span>
           </h2>
           <p className="text-lg text-gray-300">
             {t('howItWorks.subtitle')}
