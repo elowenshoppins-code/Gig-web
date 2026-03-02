@@ -118,3 +118,7 @@ backend/apk_files/gigzipfinder.apk
 # Environment files
 *.env
 *.env.*
+-e 
+# Environment files
+*.env
+*.env.*
