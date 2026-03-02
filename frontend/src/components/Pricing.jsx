@@ -29,8 +29,8 @@ export const Pricing = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Precios </span>
-            <span className="text-gradient">Transparentes</span>
+            <span className="text-white">{t('pricing.title')} </span>
+            <span className="text-gradient">{t('pricing.title2')}</span>
           </h2>
           <p className="text-lg text-gray-300">
             {t('pricing.subtitle')}
@@ -43,13 +43,13 @@ export const Pricing = () => {
             {/* Popular Badge */}
             <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-green-500 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
               <Sparkles size={16} />
-              OFERTA DE LANZAMIENTO
+              {t('pricing.launchOffer')}
             </div>
 
             <div className="bg-[#1e293b] rounded-3xl p-8 lg:p-10 border-2 border-cyan-500/50 card-glow animate-pulse-glow mt-6">
               {/* Price */}
               <div className="text-center mb-8">
-                <div className="text-gray-400 mb-2">Pago por App</div>
+                <div className="text-gray-400 mb-2">{t('pricing.perApp')}</div>
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <span className="text-5xl lg:text-6xl font-bold text-white">$5.00</span>
                   <span className="text-2xl text-gray-400">USD</span>
@@ -61,7 +61,7 @@ export const Pricing = () => {
 
               {/* Features */}
               <div className="space-y-4 mb-8">
-                <div className="text-white font-semibold text-lg mb-4">Tu compra incluye:</div>
+                <div className="text-white font-semibold text-lg mb-4">{t('pricing.includes')}</div>
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <div className="bg-cyan-500/20 rounded-full p-1 mt-0.5">
