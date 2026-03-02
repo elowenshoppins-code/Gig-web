@@ -41,6 +41,9 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/como-instalar" element={<InstallGuide />} />
+            <Route path="/how-to-install" element={<InstallGuide />} />
+            <Route path="/como-instalar-pt" element={<InstallGuide />} />
             <Route path="/admin/upload" element={<AdminUpload />} />
             <Route path="/admin/settings" element={<AdminSettings />} />
           </Routes>
