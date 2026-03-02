@@ -329,6 +329,58 @@ const resources = {
       "download.fileSize": "Tamaño de archivo",
       "download.requirements": "Requisitos:",
       "download.requirementsText": "Android 8.0 o superior • iOS 13.0 o superior (próximamente)",
+      "download.installGuide": "Cómo Instalar",
+      
+      // Install Guide
+      "install.title": "Cómo Instalar",
+      "install.titleHighlight": "GIG ZipFinder",
+      "install.subtitle": "Sigue estos sencillos pasos para instalar la aplicación en tu dispositivo Android",
+      "install.videoTitle": "Video Tutorial",
+      "install.videoSubtitle": "Mira este video si prefieres instrucciones visuales",
+      
+      "install.step1.title": "Descarga el APK",
+      "install.step1.description": "Presiona el botón de descarga y espera a que el archivo termine de descargarse. Verás una notificación cuando esté completo.",
+      "install.step1.tip": "El archivo se guardará en tu carpeta de Descargas",
+      
+      "install.step2.title": "Habilita Fuentes Desconocidas",
+      "install.step2.description": "Ve a Ajustes de tu teléfono > Seguridad (o Privacidad). Activa la opción 'Instalar aplicaciones desconocidas' o 'Orígenes desconocidos' para tu navegador.",
+      "install.step2.tip": "Esto permite instalar apps fuera de Google Play Store",
+      "install.step2.detail1": "Abre Ajustes en tu teléfono",
+      "install.step2.detail2": "Busca 'Seguridad' o 'Privacidad'",
+      "install.step2.detail3": "Encuentra 'Instalar aplicaciones desconocidas'",
+      "install.step2.detail4": "Actívalo para Chrome/Navegador",
+      
+      "install.step3.title": "Localiza el Archivo Descargado",
+      "install.step3.description": "Abre tu administrador de archivos o carpeta de descargas. Busca el archivo llamado 'GigZipFinder.apk' o similar.",
+      "install.step3.tip": "También puedes tocar la notificación de descarga",
+      
+      "install.step4.title": "Instala la Aplicación",
+      "install.step4.description": "Toca el archivo APK y presiona 'Instalar'. Espera unos segundos a que se complete la instalación.",
+      "install.step4.tip": "Si aparece una advertencia, selecciona 'Instalar de todas formas'",
+      
+      "install.step5.title": "Abre GIG ZipFinder",
+      "install.step5.description": "Una vez instalado, presiona 'Abrir' o busca el ícono de la app en tu pantalla de inicio. ¡Listo para comenzar!",
+      "install.step5.tip": "Si no la encuentras, revisa el cajón de aplicaciones",
+      
+      "install.troubleshooting.title": "¿Tienes Problemas?",
+      "install.troubleshooting.subtitle": "Soluciones comunes a problemas de instalación",
+      
+      "install.problem1.title": "Instalación Bloqueada",
+      "install.problem1.solution": "Asegúrate de haber habilitado 'Orígenes desconocidos' en Ajustes > Seguridad. Algunos teléfonos pueden requerir activarlo específicamente para tu navegador (Chrome, Firefox, etc.).",
+      
+      "install.problem2.title": "No Encuentro el Archivo Descargado",
+      "install.problem2.solution": "Abre tu administrador de archivos y busca en la carpeta 'Descargas'. También puedes ir al menú de descargas de tu navegador (⋮ > Descargas).",
+      
+      "install.problem3.title": "La App No Se Instala",
+      "install.problem3.solution": "Asegúrate de tener al menos 50 MB de espacio libre en tu almacenamiento. Si el problema persiste, intenta descargar el APK nuevamente.",
+      
+      "install.problem4.title": "Advertencia de Seguridad",
+      "install.problem4.solution": "Es normal ver una advertencia al instalar apps fuera de Google Play. GIG ZipFinder es segura. Selecciona 'Instalar de todas formas' o 'Más detalles' > 'Instalar de todas formas'.",
+      
+      "install.needHelp": "¿Sigues necesitando ayuda?",
+      "install.contactUs": "Contáctanos en",
+      "install.backToHome": "Volver al Inicio",
+      "install.downloadAgain": "Descargar APK de Nuevo",
       
       // FAQ
       "faq.title": "Preguntas",
