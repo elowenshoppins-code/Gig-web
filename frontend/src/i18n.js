@@ -75,7 +75,7 @@ const resources = {
       "pricing.title": "Transparent",
       "pricing.title2": "Pricing",
       "pricing.subtitle": "$5 payment per app. No subscriptions. No surprises.",
-      "pricing.badge": "LAUNCH OFFER",
+      "pricing.launchOffer": "LAUNCH OFFER",
       "pricing.perApp": "Payment per App",
       "pricing.oneTime": "$5 payment • No monthly fees",
       "pricing.includes": "Your purchase includes:",
@@ -87,7 +87,10 @@ const resources = {
       "pricing.feature5": "Important disclaimer about availability",
       
       "pricing.secure": "Secure payment with Stripe",
-      "pricing.secureDesc": "Secure payment processing. Your data is protected. We do not store or save payment or card data.",
+      "pricing.secureDescription": "Secure payment processing. Your data is protected. We do not store or save payment or card data.",
+      "pricing.cta": "Download and Start Now",
+      "pricing.ctaSubtitle": "Free download • Pay only when you choose your app",
+      "pricing.paymentMethods": "Accepted payment methods:",
       
       "pricing.cta": "Download and Start Now",
       "pricing.note": "Free download • Pay only when you choose your app",
