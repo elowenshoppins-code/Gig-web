@@ -73,6 +73,26 @@ GIG ZipFinder es una herramienta para gig workers que ayuda a:
 - DownloadSection actualizada para descargar APK real
 - Verifica disponibilidad antes de mostrar botón de descarga
 
+### ✅ Manual de Instalación APK (27 Dic 2025)
+**Nuevo componente**: `InstallGuide.jsx`
+- Página dedicada con guía paso a paso para instalar APK en Android
+- 5 pasos ilustrados con imágenes generadas por IA
+- Sección de troubleshooting con 4 problemas comunes y soluciones
+- Sección de video tutorial (preparada para futuro)
+- **Rutas multilenguaje**:
+  - `/como-instalar` (Español)
+  - `/how-to-install` (English)
+  - `/como-instalar-pt` (Português)
+- **Integración**:
+  - Botón "Cómo Instalar" en DownloadSection
+  - Link en Footer > Enlaces Rápidos
+  - Botón "Volver al Inicio" para navegación
+- **Características**:
+  - Responsive design (móvil primero)
+  - Imágenes ilustrativas profesionales
+  - Tips útiles en cada paso
+  - Contact support al final
+
 ### 📝 Disclaimers Importantes Añadidos
 - Footer: Disclaimer amarillo sobre no afiliación y no almacenamiento de datos de pago
 - Features: "Por la alta demanda, NO garantizamos que los códigos duren abiertos"
