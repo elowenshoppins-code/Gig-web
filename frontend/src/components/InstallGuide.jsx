@@ -6,7 +6,7 @@ import { Card } from './ui/card';
 import { Download, CheckCircle2, Settings, FolderOpen, Shield, Smartphone, AlertCircle, HelpCircle, ArrowLeft, Play } from 'lucide-react';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
 export const InstallGuide = () => {
   const { t } = useTranslation();

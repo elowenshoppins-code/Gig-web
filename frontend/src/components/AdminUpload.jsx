@@ -3,7 +3,7 @@ import { Upload, Check, AlertCircle, Download } from 'lucide-react';
 import { Button } from './ui/button';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
 export const AdminUpload = () => {
   const [file, setFile] = useState(null);
