@@ -68,7 +68,7 @@ export const Footer = () => {
                 className="bg-[#1e293b] hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/50 p-3 rounded-full transition-all group"
                 aria-label="TikTok"
               >
-                <Send className="text-cyan-400 group-hover:scale-110 transition-transform" size={20} />
+                <Music className="text-cyan-400 group-hover:scale-110 transition-transform" size={20} />
               </a>
               <a 
                 href="https://www.instagram.com/gigzipfinder?igsh=MWt1djhrZzRlZjJmcg=="
