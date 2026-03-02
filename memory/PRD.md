@@ -184,6 +184,7 @@ GIG ZipFinder es una herramienta para gig workers que ayuda a:
 ## Backlog Priorizado
 
 ### P0 (Crítico - Próximos Pasos)
+- [✅] Manual de instalación de APK
 - [ ] Subir archivo APK real para descarga
 - [ ] Configurar enlaces de descarga funcionales
 - [ ] Añadir analytics (Google Analytics o similar)
