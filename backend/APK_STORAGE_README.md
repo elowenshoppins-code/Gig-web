@@ -1,38 +1,61 @@
 # APK Storage Configuration
 
-## ⚠️ IMPORTANTE: Almacenamiento Persistente
+## ⚠️ CRÍTICO: Almacenamiento REALMENTE Persistente
 
-El archivo APK se guarda en un **volumen persistente** para evitar que se pierda cuando el contenedor se reinicia.
+El archivo APK se guarda en el **ÚNICO volumen persistente** del contenedor para garantizar que nunca se pierda.
 
 ### 📁 Ubicación del APK
 
-**Ubicación actual (persistente):**
+**Ubicación actual (PERSISTENTE GARANTIZADO):**
 ```
-/data/apk_files/gigzipfinder.apk
+/data/db/apk_storage/gigzipfinder.apk
 ```
+
+### 🔍 Por Qué Esta Ubicación Específica
+
+**Volúmenes en el contenedor:**
+- ✅ `/data/db` → **PERSISTENTE** (montado en volumen de Kubernetes)
+- ❌ `/data/` → **NO persistente** (se recrea en cada reinicio)
+- ❌ `/app/` → **NO persistente** (efímero)
+
+**¿Por qué /data/db/apk_storage?**
+- `/data/db` es el ÚNICO directorio con volumen persistente montado
+- Originalmente para MongoDB, pero podemos usar subdirectorios
+- Todo lo demás se BORRA al reiniciar el contenedor
 
 **❌ Ubicación antigua (NO persistente):**
 ```
 /app/backend/apk_files/  # Esta se pierde al reiniciar el contenedor
 ```
 
-### 🔄 Por Qué Se Cambió
+### 🔄 Por Qué Se Cambió OTRA VEZ
 
-Los contenedores de Kubernetes son **efímeros**, lo que significa que:
-- Cuando el contenedor se reinicia, pierde todos los archivos en `/app`
-- El directorio `/data` está montado en un **volumen persistente**
-- Los archivos en `/data` sobreviven a reinicios y redespliegues
+**Historia de ubicaciones:**
+1. ❌ `/app/backend/apk_files/` - Se perdía (efímero)
+2. ❌ `/data/apk_files/` - También se perdía (no montado)
+3. ✅ `/data/db/apk_storage/` - **REALMENTE persistente**
+
+**El problema:**
+- Solo `/data/db` tiene un volumen montado de Kubernetes
+- `/data/` sin el subdirectorio `db` NO es persistente
+- Fue un error asumir que todo `/data` era persistente
 
 ### 📊 Verificación
 
 Para verificar que el APK existe:
 ```bash
-ls -lah /data/apk_files/
+ls -lah /data/db/apk_storage/
 ```
 
 Para verificar el tamaño:
 ```bash
-du -h /data/apk_files/gigzipfinder.apk
+du -h /data/db/apk_storage/gigzipfinder.apk
+```
+
+Para verificar que está en volumen persistente:
+```bash
+mount | grep "/data/db"
+# Debe mostrar: /dev/nvme0n4 on /data/db type ext4 (rw,relatime)
 ```
 
 ### 🔐 Permisos

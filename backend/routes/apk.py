@@ -6,9 +6,10 @@ import shutil
 
 router = APIRouter()
 
-# Directory to store APK files in persistent storage
-# Use /data for persistent storage that survives container restarts
-APK_DIR = Path("/data/apk_files")
+# Directory to store APK files in TRULY persistent storage
+# /data/db is the ONLY persistent volume mounted in the container
+# Everything else gets wiped on container restart
+APK_DIR = Path("/data/db/apk_storage")
 APK_DIR.mkdir(parents=True, exist_ok=True)
 
 APK_FILE_PATH = APK_DIR / "gigzipfinder.apk"
