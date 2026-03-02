@@ -11,6 +11,7 @@ export const DownloadSection = () => {
   const { t } = useTranslation();
   const [apkAvailable, setApkAvailable] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('direct'); // 'direct', 'google', 'apple'
   const [storeLinks, setStoreLinks] = useState({
     google_play_url: null,
     apple_store_url: null
