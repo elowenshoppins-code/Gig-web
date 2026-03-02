@@ -160,7 +160,7 @@ Debido a la alta demanda en plataformas de gig economy y cambios constantes en s
         },
         {
           title: "6. Términos de Pago",
-          content: `• Costo del servicio: $5.00 USD por app (pago único)
+          content: `• Costo del servicio: $5.00 USD por app (pago de $5)
 • Todos los pagos procesados de forma segura a través de Stripe
 • NO almacenamos, guardamos ni tenemos acceso a tu información de pago o tarjeta de crédito
 • Stripe mantiene cumplimiento PCI-DSS
