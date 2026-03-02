@@ -131,11 +131,11 @@ export const DownloadSection = () => {
               {activeTab === 'direct' && (
                 <div className="space-y-6">
                   <div className="text-center mb-6">
-                    <Download className="mx-auto text-cyan-400 mb-4" size={64} />
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <Download className="mx-auto text-cyan-400 mb-4" size={48} />
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 px-2">
                       {t('download.downloadAPK')}
                     </h3>
-                    <p className="text-gray-400">
+                    <p className="text-gray-400 text-sm sm:text-base px-2">
                       Descarga el archivo APK directamente • 96MB • Android 8.0+
                     </p>
                   </div>
