@@ -11,6 +11,7 @@ from typing import List
 import uuid
 from datetime import datetime, timezone
 from routes.apk import router as apk_router
+from routes.apk_gridfs import router as apk_gridfs_router
 from routes.settings import router as settings_router
 
 
@@ -82,11 +83,11 @@ async def get_status_checks():
     return status_checks
 
 # Import APK router after app is created to avoid circular imports
-from routes.apk import router as apk_router
+from routes.apk_gridfs import router as apk_gridfs_router
 
 # Include the router in the main app
 app.include_router(api_router)
-app.include_router(apk_router, prefix="/api/apk", tags=["apk"])
+app.include_router(apk_gridfs_router, prefix="/api/apk", tags=["apk"])
 app.include_router(settings_router, prefix="/api/settings", tags=["settings"])
 
 app.add_middleware(
