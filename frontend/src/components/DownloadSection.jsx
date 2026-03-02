@@ -35,10 +35,13 @@ export const DownloadSection = () => {
 
   const checkApkAvailability = async () => {
     try {
+      console.log('🔍 Checking APK availability from:', `${BACKEND_URL}/api/apk/apk-info`);
       const response = await axios.get(`${BACKEND_URL}/api/apk/apk-info`);
+      console.log('✅ APK Response:', response.data);
       setApkAvailable(response.data.exists);
     } catch (error) {
-      console.error('Error checking APK:', error);
+      console.error('❌ Error checking APK:', error);
+      console.error('❌ Error details:', error.response || error.message);
       setApkAvailable(false);
     } finally {
       setLoading(false);
