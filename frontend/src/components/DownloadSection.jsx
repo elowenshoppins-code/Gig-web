@@ -61,6 +61,13 @@ export const DownloadSection = () => {
     }
   };
 
+  const getInstallGuideUrl = () => {
+    const language = i18n.language;
+    if (language === 'en') return '/how-to-install';
+    if (language === 'pt') return '/como-instalar-pt';
+    return '/como-instalar'; // Spanish is default
+  };
+
   return (
     <section id="download" className="py-20 px-4 bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
       <div className="max-w-7xl mx-auto">
