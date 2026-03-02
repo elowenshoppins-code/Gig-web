@@ -74,10 +74,10 @@ const resources = {
       // Pricing
       "pricing.title": "Transparent",
       "pricing.title2": "Pricing",
-      "pricing.subtitle": "One-time payment per app. No subscriptions. No surprises.",
+      "pricing.subtitle": "$5 payment per app. No subscriptions. No surprises.",
       "pricing.badge": "LAUNCH OFFER",
       "pricing.perApp": "Payment per App",
-      "pricing.oneTime": "One-time payment • No monthly fees",
+      "pricing.oneTime": "$5 payment • No monthly fees",
       "pricing.includes": "Your purchase includes:",
       
       "pricing.feature1": "Suggests you FREE 5 ZIP codes with high availability",
@@ -398,10 +398,10 @@ const resources = {
       // Pricing
       "pricing.title": "Preços",
       "pricing.title2": "Transparentes",
-      "pricing.subtitle": "Pagamento único por app. Sem assinaturas. Sem surpresas.",
+      "pricing.subtitle": "Pagamento de $5 por app. Sem assinaturas. Sem surpresas.",
       "pricing.badge": "OFERTA DE LANÇAMENTO",
       "pricing.perApp": "Pagamento por App",
-      "pricing.oneTime": "Pagamento único • Sem mensalidades",
+      "pricing.oneTime": "Pagamento de $5 • Sem mensalidades",
       "pricing.includes": "Sua compra inclui:",
       
       "pricing.feature1": "Sugere GRÁTIS 5 códigos postais com alta disponibilidade",
