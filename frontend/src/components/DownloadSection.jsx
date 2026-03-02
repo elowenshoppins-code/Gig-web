@@ -5,24 +5,7 @@ import { Button } from './ui/button';
 import { Download, Smartphone, Apple, AlertCircle, BookOpen } from 'lucide-react';
 import axios from 'axios';
 import { trackAPKDownload, trackStoreClick } from '../utils/analytics';
-
-// Use appropriate backend URL based on environment
-const getBackendUrl = () => {
-  // If REACT_APP_BACKEND_URL is set and not empty, use it
-  if (process.env.REACT_APP_BACKEND_URL && process.env.REACT_APP_BACKEND_URL.trim()) {
-    return process.env.REACT_APP_BACKEND_URL;
-  }
-  
-  // If we're on localhost (development), use the preview URL
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    return 'https://gif-tools-central.preview.emergentagent.com';
-  }
-  
-  // Otherwise, use the current domain (for custom domains like gigzipfinder.com)
-  return window.location.origin;
-};
-
-const BACKEND_URL = getBackendUrl();
+import { BACKEND_URL } from '../utils/api';
 
 export const DownloadSection = () => {
   const { t, i18n } = useTranslation();
