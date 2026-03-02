@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Instagram, MapPin, AlertTriangle } from 'lucide-react';
+import { Instagram, MapPin, AlertTriangle, BookOpen } from 'lucide-react';
 
 export const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
 
