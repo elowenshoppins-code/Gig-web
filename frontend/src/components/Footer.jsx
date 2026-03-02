@@ -19,6 +19,13 @@ export const Footer = () => {
     }
   };
 
+  const getInstallGuideUrl = () => {
+    const language = i18n.language;
+    if (language === 'en') return '/how-to-install';
+    if (language === 'pt') return '/como-instalar-pt';
+    return '/como-instalar'; // Spanish is default
+  };
+
   return (
     <footer className="relative overflow-hidden bg-[#0f172a] border-t border-cyan-500/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10">
