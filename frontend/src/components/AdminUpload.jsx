@@ -153,6 +153,15 @@ export const AdminUpload = () => {
               <li>• El archivo estará disponible para descarga en la página principal</li>
               <li>• Puedes subir un nuevo APK para reemplazar el anterior</li>
             </ul>
+            
+            <div className="mt-4 bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+              <p className="text-green-400 text-sm font-semibold mb-1">
+                ✅ Almacenamiento Persistente Activado
+              </p>
+              <p className="text-gray-300 text-xs">
+                El APK se guarda en almacenamiento permanente. No se perderá al reiniciar el servidor.
+              </p>
+            </div>
           </div>
 
           {/* Test Download */}
