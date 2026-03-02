@@ -14,6 +14,7 @@ import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
 import { AdminUpload } from "./components/AdminUpload";
 import { GoogleAnalytics } from "./utils/analytics";
+import { InstallGuide } from "./components/InstallGuide";
 
 import { AdminSettings } from "./components/AdminSettings";
 
