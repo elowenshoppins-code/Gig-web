@@ -240,7 +240,7 @@ const resources = {
       "pricing.title": "Precios",
       "pricing.title2": "Transparentes",
       "pricing.subtitle": "Pago de $5 por app. Sin suscripciones. Sin sorpresas.",
-      "pricing.badge": "OFERTA DE LANZAMIENTO",
+      "pricing.launchOffer": "OFERTA DE LANZAMIENTO",
       "pricing.perApp": "Pago por App",
       "pricing.oneTime": "Pago de $5 • Sin rentas mensuales",
       "pricing.includes": "Tu compra incluye:",
@@ -252,7 +252,10 @@ const resources = {
       "pricing.feature5": "Aviso importante sobre disponibilidad",
       
       "pricing.secure": "Pago seguro con Stripe",
-      "pricing.secureDesc": "Procesamiento seguro de pagos. Tus datos están protegidos. No almacenamos ni guardamos datos de pago o tarjetas.",
+      "pricing.secureDescription": "Procesamiento seguro de pagos. Tus datos están protegidos. No almacenamos ni guardamos datos de pago o tarjetas.",
+      "pricing.cta": "Descargar y Empezar Ahora",
+      "pricing.ctaSubtitle": "Descarga gratis • Paga solo cuando elijas tu app",
+      "pricing.paymentMethods": "Métodos de pago aceptados:",
       
       "pricing.cta": "Descargar y Empezar Ahora",
       "pricing.note": "Descarga gratis • Paga solo cuando elijas tu app",
