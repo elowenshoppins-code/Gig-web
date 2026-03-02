@@ -40,7 +40,7 @@ export const InstallGuide = () => {
     {
       number: 1,
       icon: Download,
-      image: "https://static.prod-images.emergentagent.com/jobs/aa0ab5d0-9838-4f15-bb1a-a79f19432776/images/f58aaf749344c8a419158ab6ca412c362a8c799029a856032b4d8a8b1386f38d.png",
+      image: "/images/install-step1.png",
       title: t('install.step1.title'),
       description: t('install.step1.description'),
       tip: t('install.step1.tip')
@@ -48,7 +48,7 @@ export const InstallGuide = () => {
     {
       number: 2,
       icon: Settings,
-      image: "https://static.prod-images.emergentagent.com/jobs/aa0ab5d0-9838-4f15-bb1a-a79f19432776/images/fc342192a326e9a7f26d0c933ecc45f0f00669dac91f550530e09c22a9dc1290.png",
+      image: "/images/install-step2.png",
       title: t('install.step2.title'),
       description: t('install.step2.description'),
       tip: t('install.step2.tip'),
@@ -62,7 +62,7 @@ export const InstallGuide = () => {
     {
       number: 3,
       icon: FolderOpen,
-      image: "https://static.prod-images.emergentagent.com/jobs/aa0ab5d0-9838-4f15-bb1a-a79f19432776/images/f58aaf749344c8a419158ab6ca412c362a8c799029a856032b4d8a8b1386f38d.png",
+      image: "/images/install-step1.png",
       title: t('install.step3.title'),
       description: t('install.step3.description'),
       tip: t('install.step3.tip')
@@ -70,7 +70,7 @@ export const InstallGuide = () => {
     {
       number: 4,
       icon: Shield,
-      image: "https://static.prod-images.emergentagent.com/jobs/aa0ab5d0-9838-4f15-bb1a-a79f19432776/images/cd4ea75f0adea0f1796c8dcac65acdfde0ccfb8ccec7a09eac9c531787383936.png",
+      image: "/images/install-step4.png",
       title: t('install.step4.title'),
       description: t('install.step4.description'),
       tip: t('install.step4.tip')
@@ -78,7 +78,7 @@ export const InstallGuide = () => {
     {
       number: 5,
       icon: CheckCircle2,
-      image: "https://static.prod-images.emergentagent.com/jobs/aa0ab5d0-9838-4f15-bb1a-a79f19432776/images/ddad435ce80d117ae20a0fc8c6a4c05c6992712549cb0ba2f54b67c49bab895a.png",
+      image: "/images/install-step5.png",
       title: t('install.step5.title'),
       description: t('install.step5.description'),
       tip: t('install.step5.tip')
