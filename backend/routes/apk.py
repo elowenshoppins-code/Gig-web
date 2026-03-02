@@ -1,5 +1,5 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from pathlib import Path
 import os
 import shutil
@@ -55,19 +55,35 @@ async def download_apk():
 async def get_apk_info():
     """
     Get information about the current APK
+    Returns with no-cache headers to prevent stale data
     """
     if not APK_FILE_PATH.exists():
-        return {
-            "exists": False,
-            "message": "No APK file uploaded yet"
-        }
+        return JSONResponse(
+            content={
+                "exists": False,
+                "message": "No APK file uploaded yet"
+            },
+            headers={
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Pragma": "no-cache",
+                "Expires": "0"
+            }
+        )
     
     file_size = os.path.getsize(APK_FILE_PATH)
     file_size_mb = round(file_size / (1024 * 1024), 2)
     
-    return {
-        "exists": True,
-        "size": file_size,
-        "size_mb": file_size_mb,
-        "filename": "GIGZipFinder.apk"
-    }
+    return JSONResponse(
+        content={
+            "exists": True,
+            "size": file_size,
+            "size_mb": file_size_mb,
+            "filename": "GIGZipFinder.apk",
+            "last_modified": os.path.getmtime(APK_FILE_PATH)
+        },
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        }
+    )

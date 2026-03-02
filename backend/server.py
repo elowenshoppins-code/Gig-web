@@ -4,6 +4,7 @@ from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
+import subprocess
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict
 from typing import List
@@ -26,6 +27,18 @@ app = FastAPI()
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
+
+# Startup event: Verify APK availability
+@app.on_event("startup")
+async def startup_event():
+    """Verify APK is available on startup"""
+    try:
+        monitor_script = Path("/app/backend/apk_monitor.sh")
+        if monitor_script.exists():
+            subprocess.run([str(monitor_script)], check=False)
+            logging.info("APK verification completed on startup")
+    except Exception as e:
+        logging.error(f"Error running APK monitor on startup: {e}")
 
 
 # Define Models
