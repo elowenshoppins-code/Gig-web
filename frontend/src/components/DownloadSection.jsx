@@ -6,7 +6,8 @@ import { Download, Smartphone, Apple, AlertCircle, BookOpen } from 'lucide-react
 import axios from 'axios';
 import { trackAPKDownload, trackStoreClick } from '../utils/analytics';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+// Use current domain for API calls (works with both custom domain and preview)
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || window.location.origin;
 
 export const DownloadSection = () => {
   const { t, i18n } = useTranslation();
