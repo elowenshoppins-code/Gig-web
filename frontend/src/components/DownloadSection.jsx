@@ -151,17 +151,20 @@ export const DownloadSection = () => {
                     <>
                       <Button 
                         onClick={handleDownloadAPK}
-                        className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-base sm:text-lg py-5 sm:py-6 rounded-full btn-primary group"
+                        className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-sm sm:text-lg py-5 sm:py-6 rounded-full btn-primary group px-4"
                       >
                         <Download className="mr-2 group-hover:animate-bounce flex-shrink-0" size={20} />
-                        <span className="truncate">{t('download.downloadAPK')} (96MB)</span>
+                        <span className="block sm:inline">
+                          <span className="hidden sm:inline">{t('download.downloadAPK')} (96MB)</span>
+                          <span className="sm:hidden">Descargar APK (96MB)</span>
+                        </span>
                       </Button>
                       
                       {/* Install Guide Button */}
                       <Button 
                         onClick={() => navigate(getInstallGuideUrl())}
                         variant="outline"
-                        className="w-full border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/20 font-bold text-sm sm:text-base py-4 sm:py-5 rounded-full"
+                        className="w-full border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/20 font-bold text-sm sm:text-base py-4 sm:py-5 rounded-full px-4"
                       >
                         <BookOpen className="mr-2 flex-shrink-0" size={18} />
                         <span className="truncate">{t('download.installGuide')}</span>
