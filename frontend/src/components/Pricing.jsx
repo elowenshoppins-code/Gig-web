@@ -76,10 +76,10 @@ export const Pricing = () => {
               <div className="bg-[#0f172a] rounded-xl p-4 mb-6 border border-cyan-500/20">
                 <div className="flex items-center gap-3 text-cyan-400 mb-2">
                   <Check size={20} />
-                  <span className="font-semibold">Pago seguro con Stripe</span>
+                  <span className="font-semibold">{t('pricing.secure')}</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Procesamiento seguro de pagos. Tus datos están protegidos. <span className="text-yellow-400 font-semibold">No almacenamos ni guardamos datos de pago o tarjetas.</span>
+                  {t('pricing.secureDescription')}
                 </p>
               </div>
 
@@ -88,11 +88,11 @@ export const Pricing = () => {
                 onClick={scrollToDownload}
                 className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-lg py-6 rounded-full btn-primary"
               >
-                Descargar y Empezar Ahora
+                {t('pricing.cta')}
               </Button>
 
               <p className="text-center text-gray-400 text-sm mt-4">
-                Descarga gratis • Paga solo cuando elijas tu app
+                {t('pricing.ctaSubtitle')}
               </p>
             </div>
           </div>
@@ -100,7 +100,7 @@ export const Pricing = () => {
 
         {/* Payment Methods */}
         <div className="text-center mt-12">
-          <p className="text-gray-400 mb-4">Métodos de pago aceptados:</p>
+          <p className="text-gray-400 mb-4">{t('pricing.paymentMethods')}</p>
           <div className="flex flex-wrap justify-center items-center gap-6">
             <div className="bg-white px-6 py-3 rounded-lg border border-cyan-500/20 flex items-center">
               <img 
