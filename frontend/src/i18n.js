@@ -40,11 +40,17 @@ const resources = {
       "features.guides.title": "Step-by-Step Guides",
       "features.guides.description": "We help you open gig applications step by step. Detailed instructions for Instacart, DoorDash, Spark Driver and more.",
       
+      "features.instant.title": "Instant Suggestions",
+      "features.instant.description": "Get immediate access to suggested ZIP codes with high availability and start working right away.",
+      
       "features.immediate.title": "Immediate Results",
       "features.immediate.description": "Access suggested ZIP codes with high probability of availability and start working immediately without waitlists.",
       
       "features.secure.title": "Safe and Reliable",
       "features.secure.description": "All numbers and data are protected. We work with best security practices to keep your information private. We do not store or save payment or card data.",
+      
+      "features.maximize.title": "Maximize Earnings",
+      "features.maximize.description": "Find the best opportunities in areas with highest demand and significantly increase your income.",
       
       "features.earnings.title": "Maximize Earnings",
       "features.earnings.description": "Find the best opportunities in areas with highest demand and significantly increase your income.",
