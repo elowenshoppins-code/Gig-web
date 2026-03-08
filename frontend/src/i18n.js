@@ -241,7 +241,7 @@ const resources = {
       "hero.title.find": "Encuentra",
       "hero.title.zipCodes": "Códigos ZIP",
       "hero.title.withAvailability": "con Alta Disponibilidad",
-      "hero.description": "Nuestra IA escanea cada 48 horas todo Estados Unidos para sugerirte los mejores códigos postales con disponibilidad en Instacart, DoorDash y Spark Driver.",
+      "hero.description": "Nuestra IA escanea cada 48 horas todo Estados Unidos para sugerir los mejores códigos postales con disponibilidad en Instacart, DoorDash y Spark Driver.",
       "hero.conditions": "Condiciones y disponibilidad aplican",
       "hero.cta.download": "Descargar APK Gratis",
       "hero.cta.howItWorks": "Cómo Funciona",
