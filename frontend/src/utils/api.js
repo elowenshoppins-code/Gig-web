@@ -1,17 +1,18 @@
 /**
  * Get the appropriate backend URL based on environment
- * - Uses REACT_APP_BACKEND_URL if set
- * - Uses current domain for production (gigzipfinder.com, preview URLs, etc.)
+ * SOLUCIÓN DEFINITIVA: Usa preview.emergentagent.com para producción
  */
 export const getBackendUrl = () => {
-  // If REACT_APP_BACKEND_URL is set and not empty, use it
-  if (process.env.REACT_APP_BACKEND_URL && process.env.REACT_APP_BACKEND_URL.trim()) {
-    return process.env.REACT_APP_BACKEND_URL;
+  const hostname = window.location.hostname;
+  
+  // Si estamos en localhost, usa localhost
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return window.location.origin;
   }
   
-  // For all environments (including localhost), use the current domain
-  // The Kubernetes Ingress will route /api/* to the backend automatically
-  return window.location.origin;
+  // Para CUALQUIER otro dominio (gigzipfinder.com, etc.)
+  // USA EL DOMINIO DE PREVIEW que SÍ tiene el routing configurado
+  return 'https://gif-tools-central.preview.emergentagent.com';
 };
 
 export const BACKEND_URL = getBackendUrl();
