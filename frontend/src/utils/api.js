@@ -1,18 +1,21 @@
 /**
  * Get the appropriate backend URL based on environment
- * SOLUCIÓN DEFINITIVA: Usa preview.emergentagent.com para producción
+ * Uses REACT_APP_BACKEND_URL from environment variables
  */
 export const getBackendUrl = () => {
-  const hostname = window.location.hostname;
-  
-  // Si estamos en localhost, usa localhost
-  if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return window.location.origin;
+  // If REACT_APP_BACKEND_URL is set (Railway, production), use it
+  if (process.env.REACT_APP_BACKEND_URL) {
+    return process.env.REACT_APP_BACKEND_URL;
   }
   
-  // Para CUALQUIER otro dominio (gigzipfinder.com, etc.)
-  // USA EL DOMINIO DE PREVIEW que SÍ tiene el routing configurado
-  return 'https://gif-tools-central.preview.emergentagent.com';
+  // Fallback for local development
+  const hostname = window.location.hostname;
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:8001';
+  }
+  
+  // Default fallback
+  return window.location.origin;
 };
 
 export const BACKEND_URL = getBackendUrl();
