@@ -851,40 +851,43 @@ async def get_admin_stats():
 @api_router.post("/admin/ai-search", dependencies=[Depends(verify_admin_token)])
 async def trigger_ai_search(app_name: str):
     """Trigger AI search for zip codes (admin only) - runs in background"""
-    from emergentintegrations.llm.chat import LlmChat, UserMessage
+    from litellm import acompletion
     
     try:
         emergent_key = os.environ.get('EMERGENT_LLM_KEY')
         if not emergent_key:
             raise HTTPException(status_code=500, detail="AI integration not configured")
         
-        chat = LlmChat(
-            api_key=emergent_key,
-            session_id=f"zip-search-{app_name}-{datetime.utcnow().isoformat()}",
-            system_message=f"""You are a research assistant helping find US zip codes where {app_name} driver/shopper positions might be available. 
-            Based on your knowledge of areas with high demand for gig economy services, suggest 5 US zip codes that typically have openings for {app_name}.
-            Focus on:
-            - Medium to large cities with growing populations
-            - Areas with many restaurants/grocery stores
-            - Suburban areas with good delivery demand
-            
-            Respond ONLY with a JSON array of objects with this format:
-            [{{"zip_code": "12345", "city": "City Name", "state": "ST", "score": 85}}]
-            
-            The score should be 1-100 indicating likelihood of availability (higher = more likely open).
-            Do not include any other text, just the JSON array."""
-        ).with_model("openai", "gpt-4o")
+        system_message = f"""You are a research assistant helping find US zip codes where {app_name} driver/shopper positions might be available. 
+        Based on your knowledge of areas with high demand for gig economy services, suggest 5 US zip codes that typically have openings for {app_name}.
+        Focus on:
+        - Medium to large cities with growing populations
+        - Areas with many restaurants/grocery stores
+        - Suburban areas with good delivery demand
         
-        user_message = UserMessage(
-            text=f"Find 5 promising US zip codes for {app_name} driver/shopper availability. Return only JSON."
+        Respond ONLY with a JSON array of objects with this format:
+        [{{"zip_code": "12345", "city": "City Name", "state": "ST", "score": 85}}]
+        
+        The score should be 1-100 indicating likelihood of availability (higher = more likely open).
+        Do not include any other text, just the JSON array."""
+        
+        user_message = f"Find 5 promising US zip codes for {app_name} driver/shopper availability. Return only JSON."
+        
+        response = await acompletion(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": system_message},
+                {"role": "user", "content": user_message}
+            ],
+            api_key=emergent_key,
+            response_format={"type": "json_object"}
         )
         
-        response = await chat.send_message(user_message)
+        result_text = response.choices[0].message.content
         
         # Parse response and save zip codes
-        import json
         # Clean the response - remove markdown code blocks if present
-        clean_response = response.strip()
+        clean_response = result_text.strip()
         if clean_response.startswith("```"):
             clean_response = clean_response.split("```")[1]
             if clean_response.startswith("json"):
@@ -928,7 +931,7 @@ async def trigger_ai_search(app_name: str):
 @api_router.post("/search-zip-codes/{app_name}")
 async def search_zip_codes_for_purchase(app_name: str):
     """Hybrid search: Perplexity (real web search) + GPT-4o (structure data)"""
-    from emergentintegrations.llm.chat import LlmChat, UserMessage
+    from litellm import acompletion
     
     try:
         emergent_key = os.environ.get('EMERGENT_LLM_KEY', EMERGENT_LLM_KEY)
@@ -1045,7 +1048,7 @@ async def search_zip_codes_realtime(app_name: str):
     Search for zip codes using AI with REAL-TIME web search.
     Searches Reddit, forums, YouTube, social media for recent mentions of open zip codes.
     """
-    from emergentintegrations.llm.chat import LlmChat, UserMessage
+    from litellm import acompletion
     
     try:
         emergent_key = os.environ.get('EMERGENT_LLM_KEY', EMERGENT_LLM_KEY)
@@ -2113,7 +2116,7 @@ scheduler = AsyncIOScheduler()
 async def scheduled_ai_search():
     """Background task: Run hybrid Perplexity + GPT-4o search for ALL apps every 48 hours"""
     logger.info("=== SCHEDULED HYBRID AI SEARCH STARTED (every 48 hours) ===")
-    from emergentintegrations.llm.chat import LlmChat, UserMessage
+    from litellm import acompletion
     
     apps = ["instacart", "doordash", "spark"]
     app_names_map = {
