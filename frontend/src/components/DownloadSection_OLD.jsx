@@ -1,0 +1,201 @@
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Button } from './ui/button';
+import { Download, Smartphone, Apple, AlertCircle } from 'lucide-react';
+import axios from 'axios';
+import { trackAPKDownload, trackStoreClick } from '../utils/analytics';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
+export const DownloadSection = () => {
+  const { t } = useTranslation();
+  const [apkAvailable, setApkAvailable] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('direct'); // 'direct', 'google', 'apple'
+  const [storeLinks, setStoreLinks] = useState({
+    google_play_url: null,
+    apple_store_url: null
+  });
+
+  useEffect(() => {
+    checkApkAvailability();
+    fetchStoreLinks();
+  }, []);
+
+  const fetchStoreLinks = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/settings/store-links`);
+      setStoreLinks(response.data);
+    } catch (error) {
+      console.error('Error fetching store links:', error);
+    }
+  };
+
+  const checkApkAvailability = async () => {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/apk/apk-info`);
+      setApkAvailable(response.data.exists);
+    } catch (error) {
+      console.error('Error checking APK availability:', error);
+      setApkAvailable(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDownloadAPK = () => {
+    if (apkAvailable) {
+      trackAPKDownload();
+      window.open(`${BACKEND_URL}/api/apk/download-apk`, '_blank');
+    } else {
+      alert('El APK no está disponible en este momento. Por favor, intenta más tarde.');
+    }
+  };
+
+  const handleStoreClick = (store, url) => {
+    if (url) {
+      trackStoreClick(store);
+      window.open(url, '_blank');
+    }
+  };
+
+  return (
+    <section id="download" className="py-20 lg:py-32 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1754765542024-c1320f23b75a?w=1920&h=1080&fit=crop"
+          alt="Download background"
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0a1628]/95 to-[#0a1628]"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Main Content */}
+          <div className="bg-[#1e293b]/80 backdrop-blur-md rounded-3xl p-8 lg:p-12 border border-cyan-500/30 card-glow">
+            <div className="mb-8">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_gif-tools-central/artifacts/n4fk7fqx_icon_192x192.png"
+                alt="GIG ZipFinder Logo"
+                className="w-24 h-24 mx-auto mb-6 animate-float"
+              />
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                <span className="text-white">{t('download.title')} </span>
+                <span className="text-gradient">{t('download.titleHighlight')}</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                {t('download.subtitle')}
+              </p>
+            </div>
+
+            {/* Download Buttons */}
+            <div className="space-y-4 max-w-md mx-auto mb-8">
+              {/* APK Download - Available Now or Not */}
+              {loading ? (
+                <Button 
+                  disabled
+                  className="w-full bg-cyan-500/50 text-white font-bold text-lg py-6 rounded-full cursor-wait"
+                >
+                  {t('download.checking')}
+                </Button>
+              ) : apkAvailable ? (
+                <Button 
+                  onClick={handleDownloadAPK}
+                  className="w-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-lg py-6 rounded-full btn-primary group"
+                >
+                  <Download className="mr-2 group-hover:animate-bounce" size={24} />
+                  {t('download.downloadAPK')}
+                </Button>
+              ) : (
+                <div className="space-y-2">
+                  <Button 
+                    disabled
+                    className="w-full bg-gray-500 text-white font-bold text-lg py-6 rounded-full cursor-not-allowed"
+                  >
+                    <Download className="mr-2" size={24} />
+                    {t('download.apkNotAvailable')}
+                  </Button>
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="text-yellow-400 flex-shrink-0 mt-0.5" size={16} />
+                      <p className="text-yellow-200 text-sm">
+                        {t('download.apkComingSoon')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Google Play - Coming Soon or Link */}
+              <div className="relative">
+                <Button 
+                  onClick={() => handleStoreClick('Google Play', storeLinks.google_play_url)}
+                  disabled={!storeLinks.google_play_url}
+                  className={`w-full ${storeLinks.google_play_url ? 'bg-[#01875f] hover:bg-[#016d4c]' : 'bg-[#0f172a] cursor-not-allowed'} border-2 border-cyan-500/30 text-white font-bold text-lg py-6 rounded-full flex items-center justify-center gap-2`}
+                >
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                    alt="Google Play"
+                    className="h-10 w-auto"
+                  />
+                </Button>
+                {!storeLinks.google_play_url && (
+                  <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    {t('download.comingSoon')}
+                  </span>
+                )}
+              </div>
+
+              {/* App Store - Coming Soon or Link */}
+              <div className="relative">
+                <Button 
+                  onClick={() => handleStoreClick('App Store', storeLinks.apple_store_url)}
+                  disabled={!storeLinks.apple_store_url}
+                  className={`w-full ${storeLinks.apple_store_url ? 'bg-black hover:bg-gray-900' : 'bg-[#0f172a] cursor-not-allowed'} border-2 border-cyan-500/30 text-white font-bold text-lg py-6 rounded-full flex items-center justify-center gap-2`}
+                >
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
+                    alt="App Store"
+                    className="h-10 w-auto"
+                  />
+                </Button>
+                {!storeLinks.apple_store_url && (
+                  <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    {t('download.comingSoon')}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="border-t border-cyan-500/20 pt-6">
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <div className="text-cyan-400 font-bold text-xl mb-1">{t('download.free')}</div>
+                  <div className="text-gray-400 text-sm">{t('download.freeDownload')}</div>
+                </div>
+                <div>
+                  <div className="text-cyan-400 font-bold text-xl mb-1">4.8★</div>
+                  <div className="text-gray-400 text-sm">{t('download.userRating')}</div>
+                </div>
+                <div>
+                  <div className="text-cyan-400 font-bold text-xl mb-1">10MB</div>
+                  <div className="text-gray-400 text-sm">{t('download.fileSize')}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Requirements */}
+            <div className="mt-8 bg-[#0f172a] rounded-xl p-4 border border-cyan-500/20">
+              <p className="text-gray-300 text-sm">
+                <span className="text-cyan-400 font-semibold">{t('download.requirements')}</span> {t('download.requirementsText')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
