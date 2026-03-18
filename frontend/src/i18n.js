@@ -211,6 +211,28 @@ const resources = {
       
       "faq.stillQuestions": "Still have questions?",
       
+      // App Selection
+      "appSelection.badge": "Choose Your App",
+      "appSelection.title": "Select Your",
+      "appSelection.titleHighlight": "Gig Platform",
+      "appSelection.subtitle": "Get AI-powered ZIP codes with high availability for your chosen platform. One-time payment, lifetime access.",
+      "appSelection.instacart.description": "Grocery delivery shoppers",
+      "appSelection.instacart.feature1": "5 AI-suggested ZIP codes",
+      "appSelection.instacart.feature2": "Updated every 48 hours",
+      "appSelection.instacart.feature3": "Step-by-step guides included",
+      "appSelection.doordash.description": "Food delivery drivers",
+      "appSelection.doordash.feature1": "5 AI-suggested ZIP codes",
+      "appSelection.doordash.feature2": "Updated every 48 hours",
+      "appSelection.doordash.feature3": "Step-by-step guides included",
+      "appSelection.spark.description": "Walmart delivery drivers",
+      "appSelection.spark.feature1": "5 AI-suggested ZIP codes",
+      "appSelection.spark.feature2": "Updated every 48 hours",
+      "appSelection.spark.feature3": "Step-by-step guides included",
+      "appSelection.priceSubtitle": "One-time payment",
+      "appSelection.cta": "Get ZIP Codes Now",
+      "appSelection.benefit": "Instant access after payment",
+      "appSelection.additionalInfo": "Secure payment with Stripe. Access ZIP codes immediately after purchase. Download guides in PDF format.",
+      
       // Footer
       "footer.description": "The ultimate tool for gig workers. Find the best suggested ZIP codes with availability on Instacart, DoorDash and Spark Driver using artificial intelligence.",
       "footer.quickLinks": "Quick Links",
@@ -436,6 +458,28 @@ const resources = {
       "faq.a10": "Debido a la alta demanda y cambios constantes en las apps de delivery, no podemos garantizar que los códigos ZIP sugeridos siempre estarán disponibles o funcionarán en todos los casos. Nuestra IA proporciona sugerencias basadas en análisis de datos, pero la disponibilidad puede cambiar rápidamente. Somos una herramienta de ayuda, no socios de las apps mencionadas.",
       
       "faq.stillQuestions": "¿Aún tienes preguntas?",
+      
+      // App Selection
+      "appSelection.badge": "Elige Tu App",
+      "appSelection.title": "Selecciona Tu",
+      "appSelection.titleHighlight": "Plataforma Gig",
+      "appSelection.subtitle": "Obtén códigos ZIP con alta disponibilidad generados por IA para tu plataforma elegida. Pago único, acceso de por vida.",
+      "appSelection.instacart.description": "Shoppers de Instacart",
+      "appSelection.instacart.feature1": "5 códigos ZIP sugeridos por IA",
+      "appSelection.instacart.feature2": "Actualizados cada 48 horas",
+      "appSelection.instacart.feature3": "Guías paso a paso incluidas",
+      "appSelection.doordash.description": "Drivers de DoorDash",
+      "appSelection.doordash.feature1": "5 códigos ZIP sugeridos por IA",
+      "appSelection.doordash.feature2": "Actualizados cada 48 horas",
+      "appSelection.doordash.feature3": "Guías paso a paso incluidas",
+      "appSelection.spark.description": "Drivers de Spark/Walmart",
+      "appSelection.spark.feature1": "5 códigos ZIP sugeridos por IA",
+      "appSelection.spark.feature2": "Actualizados cada 48 horas",
+      "appSelection.spark.feature3": "Guías paso a paso incluidas",
+      "appSelection.priceSubtitle": "Pago único",
+      "appSelection.cta": "Obtener Códigos ZIP",
+      "appSelection.benefit": "Acceso instantáneo después del pago",
+      "appSelection.additionalInfo": "Pago seguro con Stripe. Accede a los códigos ZIP inmediatamente después de la compra. Descarga guías en formato PDF.",
       
       // Footer
       "footer.description": "La herramienta definitiva para gig workers. Encuentra los mejores códigos ZIP sugeridos con disponibilidad en Instacart, DoorDash y Spark Driver usando inteligencia artificial.",
