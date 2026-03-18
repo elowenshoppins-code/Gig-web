@@ -29,6 +29,7 @@ const HomePage = () => (
     <Hero />
     <Features />
     <HowItWorks />
+    <AppSelection />
     <Pricing />
     <DownloadSection />
     <FAQ />
