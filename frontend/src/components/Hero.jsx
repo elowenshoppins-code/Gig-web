@@ -49,14 +49,14 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
                 onClick={scrollToBuyNow}
-                className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-lg px-8 py-6 rounded-full btn-primary glow-effect group shadow-lg shadow-cyan-500/50"
+                className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-full btn-primary glow-effect group shadow-lg shadow-cyan-500/50 w-full sm:w-auto"
               >
                 {t('nav.buyNow')}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Button>
               <Button 
                 onClick={scrollToDownload}
-                className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-lg px-8 py-6 rounded-full btn-primary group"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-full btn-primary group w-full sm:w-auto"
               >
                 {t('hero.cta.download')}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
@@ -64,7 +64,7 @@ export const Hero = () => {
               <Button 
                 variant="outline"
                 onClick={scrollToHowItWorks}
-                className="border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 font-bold text-lg px-8 py-6 rounded-full"
+                className="border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-full w-full sm:w-auto"
               >
                 {t('hero.cta.howItWorks')}
               </Button>
@@ -98,21 +98,21 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/80 to-transparent"></div>
               
               {/* Floating card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-[#0f172a]/95 backdrop-blur-lg rounded-2xl p-5 border-2 border-cyan-500/50 shadow-2xl animate-float">
-                <div className="flex items-center gap-4">
-                  <div className="bg-cyan-500/30 p-3 rounded-full ring-2 ring-cyan-400/50">
-                    <MapPin className="text-cyan-300" size={26} />
+              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 bg-[#0f172a]/95 backdrop-blur-lg rounded-2xl p-3 sm:p-5 border-2 border-cyan-500/50 shadow-2xl animate-float">
+                <div className="flex items-center gap-2 sm:gap-4">
+                  <div className="bg-cyan-500/30 p-2 sm:p-3 rounded-full ring-2 ring-cyan-400/50">
+                    <MapPin className="text-cyan-300" size={20} />
                   </div>
                   <div className="flex-1">
-                    <div className="text-white font-bold text-lg tracking-wide">ZIP: 90210</div>
-                    <div className="text-yellow-300 text-sm font-semibold flex items-center gap-1">
-                      <span className="text-base">⚠️</span>
+                    <div className="text-white font-bold text-base sm:text-lg tracking-wide">ZIP: 90210</div>
+                    <div className="text-yellow-300 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                      <span className="text-sm sm:text-base">⚠️</span>
                       <span className="drop-shadow-lg">Suggested</span>
                     </div>
                   </div>
                   <div className="ml-auto">
-                    <div className="bg-cyan-500/20 px-4 py-2 rounded-full border border-cyan-400/50">
-                      <span className="text-cyan-300 font-black text-xl drop-shadow-lg">AI</span>
+                    <div className="bg-cyan-500/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-cyan-400/50">
+                      <span className="text-cyan-300 font-black text-lg sm:text-xl drop-shadow-lg">AI</span>
                     </div>
                   </div>
                 </div>
