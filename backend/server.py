@@ -2094,6 +2094,10 @@ async def create_web_checkout_session(request: WebCheckoutRequest):
 # Include the router in the main app
 app.include_router(api_router)
 
+# Import and register APK routes
+from routes import apk_gridfs
+app.include_router(apk_gridfs.router, prefix="/api/apk", tags=["APK Management"])
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
