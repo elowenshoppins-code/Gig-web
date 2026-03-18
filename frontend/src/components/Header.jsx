@@ -83,6 +83,12 @@ export const Header = () => {
             </button>
             <LanguageSelector />
             <Button 
+              onClick={() => scrollToSection('buy-now')}
+              className="bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white font-bold px-6 py-2 rounded-full shadow-lg"
+            >
+              {t('nav.buyNow')}
+            </Button>
+            <Button 
               onClick={() => scrollToSection('download')}
               className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-2 rounded-full btn-primary"
             >
@@ -118,6 +124,12 @@ export const Header = () => {
               <button onClick={() => scrollToSection('faq')} className="text-gray-300 hover:text-cyan-400 transition-colors text-left py-2">
                 {t('nav.faq')}
               </button>
+              <Button 
+                onClick={() => scrollToSection('buy-now')}
+                className="bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white font-bold w-full rounded-full shadow-lg"
+              >
+                {t('nav.buyNow')}
+              </Button>
               <Button 
                 onClick={() => scrollToSection('download')}
                 className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold w-full rounded-full"
