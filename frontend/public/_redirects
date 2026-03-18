@@ -1,1 +1,6 @@
+# Force HTTPS redirect
+http://gigzipfinder.com/* https://www.gigzipfinder.com/:splat 301!
+http://www.gigzipfinder.com/* https://www.gigzipfinder.com/:splat 301!
+
+# SPA Fallback - all routes go to index.html
 /*    /index.html   200
