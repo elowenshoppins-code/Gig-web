@@ -14,6 +14,10 @@ export const Hero = () => {
     document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToBuyNow = () => {
+    document.getElementById('buy-now')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background effects */}
@@ -44,8 +48,15 @@ export const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
+                onClick={scrollToBuyNow}
+                className="bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white font-bold text-lg px-8 py-6 rounded-full btn-primary glow-effect group shadow-lg shadow-cyan-500/50"
+              >
+                {t('nav.buyNow')}
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              </Button>
+              <Button 
                 onClick={scrollToDownload}
-                className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-lg px-8 py-6 rounded-full btn-primary glow-effect group"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-lg px-8 py-6 rounded-full btn-primary group"
               >
                 {t('hero.cta.download')}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />

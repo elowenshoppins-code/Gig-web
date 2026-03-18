@@ -35,7 +35,7 @@ export const Dashboard = () => {
       searching: 'AI is searching...',
       guides: 'Download Guides',
       guideApp: `${app.name} Guide`,
-      guideVoice: 'Google Voice Guide',
+      guideVoice: 'Phone Number Guide',
       noAccess: 'No access. Please purchase first.',
       purchase: 'Purchase Access',
       back: 'Back',
@@ -53,7 +53,7 @@ export const Dashboard = () => {
       searching: 'La IA está buscando...',
       guides: 'Descargar Guías',
       guideApp: `Guía de ${app.name}`,
-      guideVoice: 'Guía de Google Voice',
+      guideVoice: 'Guía de Número Telefónico',
       noAccess: 'Sin acceso. Realiza la compra primero.',
       purchase: 'Comprar Acceso',
       back: 'Volver',
@@ -71,7 +71,7 @@ export const Dashboard = () => {
       searching: 'A IA está buscando...',
       guides: 'Baixar Guias',
       guideApp: `Guia de ${app.name}`,
-      guideVoice: 'Guia do Google Voice',
+      guideVoice: 'Guia de Número Telefônico',
       noAccess: 'Sem acesso. Faça a compra primeiro.',
       purchase: 'Comprar Acesso',
       back: 'Voltar',
@@ -233,7 +233,7 @@ export const Dashboard = () => {
               </div>
             </div>
 
-            {/* Google Voice Guide */}
+            {/* Phone Number Guide */}
             <div className="bg-[#0f172a] rounded-xl p-4 border border-cyan-500/10">
               <h3 className="text-white font-semibold mb-3">{t.guideVoice}</h3>
               <div className="flex gap-2">

@@ -52,7 +52,7 @@ export const AppSelection = () => {
   };
 
   return (
-    <section id="apps" className="py-20 lg:py-32 relative overflow-hidden bg-gradient-to-b from-[#0f172a]/50 to-transparent">
+    <section id="buy-now" className="py-20 lg:py-32 relative overflow-hidden bg-gradient-to-b from-[#0f172a]/50 to-transparent">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
