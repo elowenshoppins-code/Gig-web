@@ -352,8 +352,15 @@ class CheckoutSessionRequest(BaseModel):
 
 @api_router.post("/stripe/create-checkout-session")
 async def create_checkout_session(request: CheckoutSessionRequest):
-    """Create a Stripe Checkout Session for web payments"""
+    """Create a Stripe Checkout Session for mobile app payments"""
     try:
+        # Validate terms acceptance
+        if not request.terms_accepted:
+            raise HTTPException(
+                status_code=400, 
+                detail="You must accept the terms and conditions before proceeding with payment"
+            )
+        
         # Get base URL from environment or use default
         base_url = os.environ.get('FRONTEND_URL', 'https://gigzipfinder.app')
         
@@ -364,7 +371,7 @@ async def create_checkout_session(request: CheckoutSessionRequest):
                     'currency': 'usd',
                     'product_data': {
                         'name': f'GIG ZipFinder - {request.app_name.title()} Package',
-                        'description': f'5 Hot Zip Codes + {request.app_name.title()} Guide + Google Voice Guide',
+                        'description': f'5 AI-suggested ZIP codes + {request.app_name.title()} Guide + Phone Number Guide',
                     },
                     'unit_amount': 2000,  # $20.00 in cents
                 },
@@ -1268,7 +1275,7 @@ By accessing and using the GIG ZipFinder application ("App"), you accept and agr
 GIG ZipFinder provides:
 - Zip codes that MAY have availability for opening accounts on gig economy platforms (Instacart, DoorDash, Spark Driver)
 - Step-by-step guides for account opening procedures
-- Instructions for obtaining a free secondary phone number via Google Voice
+- Instructions for obtaining a free secondary phone number
 
 3. NO GUARANTEE OF AVAILABILITY
 THE ZIP CODES PROVIDED ARE SUGGESTIONS ONLY. We make NO guarantee that:
@@ -1337,7 +1344,7 @@ Al acceder y usar la aplicación GIG ZipFinder ("App"), usted acepta y acuerda e
 GIG ZipFinder proporciona:
 - Códigos postales que PUEDEN tener disponibilidad para abrir cuentas en plataformas de economía gig (Instacart, DoorDash, Spark Driver)
 - Guías paso a paso para procedimientos de apertura de cuenta
-- Instrucciones para obtener un número de teléfono secundario gratis a través de Google Voice
+- Instrucciones para obtener un número de teléfono secundario gratis
 
 3. SIN GARANTÍA DE DISPONIBILIDAD
 LOS CÓDIGOS POSTALES PROPORCIONADOS SON SOLO SUGERENCIAS. NO garantizamos que:
@@ -2047,6 +2054,13 @@ class WebCheckoutRequest(BaseModel):
 async def create_web_checkout_session(request: WebCheckoutRequest):
     """Create a Stripe Checkout Session for web payments with web-compatible URLs"""
     try:
+        # Validate terms acceptance
+        if not request.terms_accepted:
+            raise HTTPException(
+                status_code=400, 
+                detail="You must accept the terms and conditions before proceeding with payment"
+            )
+        
         base_url = request.return_url.rstrip('/')
 
         session = stripe.checkout.Session.create(
@@ -2056,7 +2070,7 @@ async def create_web_checkout_session(request: WebCheckoutRequest):
                     'currency': 'usd',
                     'product_data': {
                         'name': f'GIG ZipFinder - {request.app_name.title()} Package',
-                        'description': f'5 Hot Zip Codes + {request.app_name.title()} Guide + Google Voice Guide',
+                        'description': f'5 AI-suggested ZIP codes + {request.app_name.title()} Guide + Phone Number Guide',
                     },
                     'unit_amount': 2000,
                 },
