@@ -98,16 +98,23 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/80 to-transparent"></div>
               
               {/* Floating card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-[#1e293b]/90 backdrop-blur-md rounded-2xl p-4 border border-cyan-500/30 animate-float">
-                <div className="flex items-center gap-3">
-                  <div className="bg-cyan-500/20 p-3 rounded-full">
-                    <MapPin className="text-cyan-400" size={24} />
+              <div className="absolute bottom-6 left-6 right-6 bg-[#0f172a]/95 backdrop-blur-lg rounded-2xl p-5 border-2 border-cyan-500/50 shadow-2xl animate-float">
+                <div className="flex items-center gap-4">
+                  <div className="bg-cyan-500/30 p-3 rounded-full ring-2 ring-cyan-400/50">
+                    <MapPin className="text-cyan-300" size={26} />
                   </div>
-                  <div>
-                    <div className="text-white font-semibold">ZIP: 90210</div>
-                    <div className="text-yellow-400 text-sm font-medium">⚠ Suggested</div>
+                  <div className="flex-1">
+                    <div className="text-white font-bold text-lg tracking-wide">ZIP: 90210</div>
+                    <div className="text-yellow-300 text-sm font-semibold flex items-center gap-1">
+                      <span className="text-base">⚠️</span>
+                      <span className="drop-shadow-lg">Suggested</span>
+                    </div>
                   </div>
-                  <div className="ml-auto text-cyan-400 font-bold text-xl">AI</div>
+                  <div className="ml-auto">
+                    <div className="bg-cyan-500/20 px-4 py-2 rounded-full border border-cyan-400/50">
+                      <span className="text-cyan-300 font-black text-xl drop-shadow-lg">AI</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
