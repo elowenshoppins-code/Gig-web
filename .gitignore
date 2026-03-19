@@ -259,3 +259,7 @@ backend_backup_20260317_041327/apk_files/gigzipfinder.apk
 # Environment files
 *.env
 *.env.*
+-e 
+# Environment files
+*.env
+*.env.*
