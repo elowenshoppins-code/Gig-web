@@ -23,6 +23,14 @@ import asyncio
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 
+# Import Emergent SDK for AI features
+try:
+    from emergentintegrations import LlmChat, UserMessage
+    EMERGENT_SDK_AVAILABLE = True
+except ImportError:
+    EMERGENT_SDK_AVAILABLE = False
+    logging.warning("emergentintegrations not available - AI search will use litellm fallback")
+
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
