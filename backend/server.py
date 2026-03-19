@@ -34,9 +34,20 @@ except ImportError:
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# Emergent LLM Key for AI search
+# AI Search Configuration - Supports both your own OpenAI key AND Emergent LLM Key
+# Priority: OPENAI_API_KEY (your own) > EMERGENT_LLM_KEY (fallback)
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
 EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY', '')
 PERPLEXITY_API_KEY = os.environ.get('PERPLEXITY_API_KEY', '')
+
+# Determine which AI key to use
+def get_ai_key():
+    """Get AI key with priority: OpenAI (independent) > Emergent LLM Key (fallback)"""
+    if OPENAI_API_KEY:
+        return OPENAI_API_KEY, "openai"
+    elif EMERGENT_LLM_KEY:
+        return EMERGENT_LLM_KEY, "emergent"
+    return None, None
 
 # Perplexity-powered real-time web search
 async def perplexity_web_search(app_name: str, app_display: str) -> str:
@@ -949,8 +960,9 @@ async def search_zip_codes_for_purchase(app_name: str):
     from litellm import acompletion
     
     try:
-        emergent_key = os.environ.get('EMERGENT_LLM_KEY', EMERGENT_LLM_KEY)
-        if not emergent_key:
+        ai_key, key_type = get_ai_key()
+        if not ai_key:
+            # Fallback to cached data if no AI key is configured
             existing = await db.zip_codes.find({"app_name": app_name.lower()}).to_list(5)
             return {"zip_codes": serialize_doc(existing), "source": "cache"}
         
@@ -1002,13 +1014,26 @@ Respond with ONLY a valid JSON array:
             user_msg = f"Find 5 best US zip codes for {app_display} availability in {current_month}. Return ONLY JSON."
             search_source = "ai_web_search"
         
-        chat = LlmChat(
-            api_key=emergent_key,
-            session_id=f"hybrid-{app_name}-{datetime.utcnow().isoformat()}",
-            system_message=system_msg
-        ).with_model("openai", "gpt-4o")
-        
-        response = await chat.send_message(UserMessage(text=user_msg))
+        # Use litellm directly (works with any OpenAI-compatible key)
+        if key_type == "emergent" and EMERGENT_SDK_AVAILABLE:
+            # Use Emergent SDK if available
+            chat = LlmChat(
+                api_key=ai_key,
+                session_id=f"hybrid-{app_name}-{datetime.utcnow().isoformat()}",
+                system_message=system_msg
+            ).with_model("openai", "gpt-4o")
+            response = await chat.send_message(UserMessage(text=user_msg))
+        else:
+            # Use litellm directly (independent mode with your own OpenAI key)
+            response_obj = await acompletion(
+                model="gpt-4o",
+                messages=[
+                    {"role": "system", "content": system_msg},
+                    {"role": "user", "content": user_msg}
+                ],
+                api_key=ai_key
+            )
+            response = response_obj.choices[0].message.content
         
         # Parse response
         clean_response = response.strip()
@@ -2151,9 +2176,9 @@ async def scheduled_ai_search():
         "spark": "Spark Driver (Walmart)"
     }
     
-    emergent_key = os.environ.get('EMERGENT_LLM_KEY', EMERGENT_LLM_KEY)
-    if not emergent_key:
-        logger.error("SCHEDULED SEARCH FAILED: No AI key configured")
+    ai_key, key_type = get_ai_key()
+    if not ai_key:
+        logger.error("SCHEDULED SEARCH FAILED: No AI key configured (set OPENAI_API_KEY or EMERGENT_LLM_KEY)")
         return
     
     for app_name in apps:
@@ -2180,12 +2205,33 @@ Respond with ONLY a valid JSON array:
                 search_source = "scheduled_ai_search"
             
             chat = LlmChat(
-                api_key=emergent_key,
+                api_key=ai_key,
                 session_id=f"scheduled-{app_name}-{datetime.utcnow().isoformat()}",
                 system_message=system_msg
             ).with_model("openai", "gpt-4o")
             
             response = await chat.send_message(UserMessage(text=user_msg))
+            
+            # Use litellm directly (works with any OpenAI-compatible key)
+            if key_type == "emergent" and EMERGENT_SDK_AVAILABLE:
+                # Use Emergent SDK if available
+                chat = LlmChat(
+                    api_key=ai_key,
+                    session_id=f"scheduled-{app_name}-{datetime.utcnow().isoformat()}",
+                    system_message=system_msg
+                ).with_model("openai", "gpt-4o")
+                response = await chat.send_message(UserMessage(text=user_msg))
+            else:
+                # Use litellm directly (independent mode)
+                response_obj = await acompletion(
+                    model="gpt-4o",
+                    messages=[
+                        {"role": "system", "content": system_msg},
+                        {"role": "user", "content": user_msg}
+                    ],
+                    api_key=ai_key
+                )
+                response = response_obj.choices[0].message.content
             
             clean_response = response.strip()
             if "```" in clean_response:
