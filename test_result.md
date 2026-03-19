@@ -250,3 +250,5 @@ test_plan:
 agent_communication:
   - agent: "main"
     message: "DNS issue resolved. Site now fully accessible at www.gigzipfinder.com with SSL. Root domain (gigzipfinder.com) redirects correctly via IONOS. Ready for comprehensive production testing of all features: purchase flow, Stripe payments, AI search, PDF downloads, and APK upload. Using LIVE Stripe keys and EMERGENT_LLM_KEY."
+  - agent: "main"
+    message: "CRITICAL FIXES COMPLETED: 1) Updated Stripe keys - old keys were expired, new valid keys configured in Railway. 2) Fixed backend API routing - configured REACT_APP_BACKEND_URL=https://gigzipfinder-production.up.railway.app in frontend service. 3) Backend now accessible at gigzipfinder-production.up.railway.app/api/*. 4) Full purchase flow tested successfully - Stripe checkout redirection working. Ready for final comprehensive testing."
