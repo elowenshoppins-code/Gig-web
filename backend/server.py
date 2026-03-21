@@ -92,6 +92,105 @@ Focus on the 5 most promising areas with the strongest evidence of current avail
         logging.error(f"Perplexity search failed for {app_name}: {str(e)}")
         return None
 
+
+# Immediate AI search triggered after payment
+async def trigger_immediate_ai_search(app_name: str):
+    """Trigger AI search immediately after payment verification"""
+    from litellm import acompletion
+    
+    try:
+        ai_key, key_type = get_ai_key()
+        if not ai_key:
+            logger.error(f"Cannot trigger AI search for {app_name}: No AI key configured")
+            return
+        
+        app_names_map = {
+            "instacart": "Instacart Shopper",
+            "doordash": "DoorDash Driver/Dasher",
+            "spark": "Spark Driver (Walmart)"
+        }
+        app_display = app_names_map.get(app_name.lower(), app_name)
+        current_month = datetime.utcnow().strftime('%B %Y')
+        
+        logger.info(f"Starting immediate AI search for {app_name} after payment...")
+        
+        # Step 1: Try Perplexity real-time web search first
+        web_data = await perplexity_web_search(app_name, app_display)
+        
+        # Step 2: Use GPT-4o to structure the data
+        if web_data:
+            system_msg = f"""You are a data extraction expert. Extract the 5 BEST US zip codes from real web search results about {app_display}.
+If specific ZIP codes are mentioned, use those. If only cities are mentioned, provide the main ZIP code.
+Respond with ONLY a valid JSON array:
+[{{"zip_code": "12345", "city": "City Name", "state": "ST", "score": 85, "reason": "Evidence from web data", "source": "URL or platform"}}]"""
+            user_msg = f"Extract 5 best ZIP codes from this web data about {app_display} in {current_month}:\n\n{web_data}\n\nReturn ONLY JSON array."
+            search_source = "immediate_perplexity"
+        else:
+            system_msg = f"""You are an expert on gig economy jobs. Find 5 best US zip codes where {app_display} is hiring in {current_month}.
+Respond with ONLY a valid JSON array:
+[{{"zip_code": "12345", "city": "City Name", "state": "ST", "score": 85, "reason": "Brief reason", "source": "Source"}}]"""
+            user_msg = f"Find 5 best US zip codes for {app_display} in {current_month}. Return ONLY JSON."
+            search_source = "immediate_ai"
+        
+        # Use litellm directly (works with any key)
+        if key_type == "emergent" and EMERGENT_SDK_AVAILABLE:
+            chat = LlmChat(
+                api_key=ai_key,
+                session_id=f"immediate-{app_name}-{datetime.utcnow().isoformat()}",
+                system_message=system_msg
+            ).with_model("openai", "gpt-4o")
+            response = await chat.send_message(UserMessage(text=user_msg))
+        else:
+            response_obj = await acompletion(
+                model="gpt-4o",
+                messages=[
+                    {"role": "system", "content": system_msg},
+                    {"role": "user", "content": user_msg}
+                ],
+                api_key=ai_key
+            )
+            response = response_obj.choices[0].message.content
+        
+        # Parse and save ZIP codes
+        clean_response = response.strip()
+        if "```" in clean_response:
+            match = re.search(r'\[[\s\S]*\]', clean_response)
+            if match:
+                clean_response = match.group()
+        if clean_response.startswith("json"):
+            clean_response = clean_response[4:].strip()
+        if not clean_response.startswith("["):
+            match = re.search(r'\[[\s\S]*?\]', clean_response)
+            if match:
+                clean_response = match.group()
+        
+        zip_data = json.loads(clean_response)
+        
+        # Save to database
+        for item in zip_data[:5]:
+            zip_code_obj = ZipCode(
+                zip_code=str(item["zip_code"]),
+                city=item["city"],
+                state=item["state"],
+                app_name=app_name.lower(),
+                availability_score=item.get("score", 75),
+                source=search_source,
+                expires_at=datetime.utcnow() + timedelta(hours=48)
+            )
+            
+            await db.zip_codes.update_one(
+                {"zip_code": str(item["zip_code"]), "app_name": app_name.lower()},
+                {"$set": {**zip_code_obj.dict(), "created_at": datetime.utcnow(), "reason": item.get("reason", ""), "source_detail": item.get("source", "")}},
+                upsert=True
+            )
+        
+        logger.info(f"✅ Immediate AI search completed for {app_name}: {len(zip_data[:5])} ZIP codes saved ({search_source})")
+        
+    except Exception as e:
+        logger.error(f"❌ Immediate AI search failed for {app_name}: {str(e)}")
+        import traceback
+        logger.error(traceback.format_exc())
+
 # MongoDB connection
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
@@ -428,7 +527,7 @@ async def create_checkout_session(request: CheckoutSessionRequest):
 
 @api_router.post("/stripe/verify-checkout/{session_id}")
 async def verify_checkout_session(session_id: str):
-    """Verify a Stripe Checkout Session payment status"""
+    """Verify a Stripe Checkout Session payment status and create access code with 48h expiration"""
     try:
         # Retrieve the checkout session
         session = stripe.checkout.Session.retrieve(session_id)
@@ -439,7 +538,13 @@ async def verify_checkout_session(session_id: str):
             user_id = metadata.get('user_id', 'unknown')
             app_name = metadata.get('app_name', 'unknown')
             
-            # Upsert payment record - create if not exists, update if exists
+            # Calculate expiration (48 hours from now)
+            expires_at = datetime.utcnow() + timedelta(hours=48)
+            
+            # Generate unique access code
+            access_code = f"GIG-{str(uuid.uuid4())[:8].upper()}"
+            
+            # Upsert payment record with 48h expiration
             await db.payments.update_one(
                 {"stripe_payment_intent_id": session_id},
                 {
@@ -447,6 +552,9 @@ async def verify_checkout_session(session_id: str):
                         "status": "succeeded",
                         "user_id": user_id,
                         "app_name": app_name,
+                        "access_code": access_code,
+                        "expires_at": expires_at,
+                        "is_active": True
                     },
                     "$setOnInsert": {
                         "id": str(uuid.uuid4()),
@@ -468,6 +576,9 @@ async def verify_checkout_session(session_id: str):
                             "status": "succeeded",
                             "user_id": user_id,
                             "app_name": app_name,
+                            "access_code": access_code,
+                            "expires_at": expires_at,
+                            "is_active": True
                         },
                         "$setOnInsert": {
                             "id": str(uuid.uuid4()),
@@ -480,11 +591,21 @@ async def verify_checkout_session(session_id: str):
                     upsert=True
                 )
             
+            # CRITICAL: Trigger AI search IMMEDIATELY after payment
+            logger.info(f"Payment verified for {user_id} - {app_name}. Triggering immediate AI search...")
+            try:
+                # Run AI search in background (non-blocking)
+                asyncio.create_task(trigger_immediate_ai_search(app_name))
+            except Exception as e:
+                logger.error(f"Failed to trigger immediate AI search: {str(e)}")
+            
             return {
                 "status": "succeeded",
                 "payment_status": session.payment_status,
                 "app_name": app_name,
                 "user_id": user_id,
+                "access_code": access_code,
+                "expires_at": expires_at.isoformat(),
                 "customer_email": session.customer_details.email if session.customer_details else None
             }
         else:
@@ -523,24 +644,46 @@ async def check_payment_by_email(email: str, app_name: str):
 
 @api_router.get("/stripe/check-payment-by-user/{user_id}")
 async def check_payment_by_user_id(user_id: str, app_name: str):
-    """Check if a payment exists for a user_id and app"""
+    """Check if a payment exists for a user_id and app, and if it's still valid (not expired)"""
     try:
-        # First check our database for payments
+        # Check our database for payments with expiration check
         payment = await db.payments.find_one({
+            "user_id": user_id,
+            "app_name": app_name.lower(),
+            "status": "succeeded",
+            "is_active": True,
+            "expires_at": {"$gt": datetime.utcnow()}  # Check if not expired
+        })
+        
+        if payment:
+            expires_at = payment.get("expires_at")
+            hours_remaining = (expires_at - datetime.utcnow()).total_seconds() / 3600 if expires_at else 0
+            
+            return {
+                "found": True,
+                "status": "succeeded",
+                "payment_id": payment.get("id"),
+                "access_code": payment.get("access_code"),
+                "expires_at": expires_at.isoformat() if expires_at else None,
+                "hours_remaining": round(hours_remaining, 1),
+                "stripe_payment_intent_id": payment.get("stripe_payment_intent_id")
+            }
+        
+        # Check if payment exists but is expired
+        expired_payment = await db.payments.find_one({
             "user_id": user_id,
             "app_name": app_name.lower(),
             "status": "succeeded"
         })
         
-        if payment:
+        if expired_payment:
             return {
-                "found": True,
-                "status": "succeeded",
-                "payment_id": payment.get("id"),
-                "stripe_payment_intent_id": payment.get("stripe_payment_intent_id")
+                "found": False,
+                "status": "expired",
+                "message": "Your access has expired after 48 hours. Please purchase again."
             }
         
-        # Also search Stripe sessions by metadata
+        # Also search Stripe sessions by metadata (fallback)
         sessions = stripe.checkout.Session.list(
             limit=10,
             expand=['data.payment_intent']
