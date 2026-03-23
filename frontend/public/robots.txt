@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.gigzipfinder.com/sitemap.xml
+
+# Disallow admin routes if any
+Disallow: /api/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /purchase/
+Allow: /dashboard/
+Allow: /payment-success
