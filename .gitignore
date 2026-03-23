@@ -156,3 +156,7 @@ test_result.md
 # Git internals
 .git-credentials
 .gitconfig
+-e 
+# Environment files
+*.env
+*.env.*
