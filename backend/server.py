@@ -136,16 +136,21 @@ Respond with ONLY a valid JSON array:
             search_source = "immediate_ai"
         
         # Use litellm directly (works with any key)
-        if key_type == "emergent" and EMERGENT_SDK_AVAILABLE:
-            chat = LlmChat(
-                api_key=ai_key,
-                session_id=f"immediate-{app_name}-{datetime.utcnow().isoformat()}",
-                system_message=system_msg
-            ).with_model("openai", "gpt-4o")
-            response = await chat.send_message(UserMessage(text=user_msg))
+        if key_type == "emergent":
+            if EMERGENT_SDK_AVAILABLE:
+                chat = LlmChat(
+                    api_key=ai_key,
+                    session_id=f"immediate-{app_name}-{datetime.utcnow().isoformat()}",
+                    system_message=system_msg
+                ).with_model("openai", "gpt-4o")
+                response = await chat.send_message(UserMessage(text=user_msg))
+            else:
+                logger.error("Emergent LLM Key requires emergentintegrations package. Please install it or use OpenAI/xAI keys.")
+                raise Exception("emergentintegrations not available - cannot use Emergent LLM Key")
         else:
+            # Use standard OpenAI/xAI with litellm
             response_obj = await acompletion(
-                model="gpt-4o",
+                model="gpt-4o" if key_type == "openai" else "grok-beta",
                 messages=[
                     {"role": "system", "content": system_msg},
                     {"role": "user", "content": user_msg}
