@@ -20,6 +20,7 @@ export const Dashboard = () => {
   const [searching, setSearching] = useState(false);
   const [hasAccess, setHasAccess] = useState(false);
   const [guides, setGuides] = useState([]);
+  const [timeRemaining, setTimeRemaining] = useState(48);
 
   const app = APP_INFO[appName?.toLowerCase()] || APP_INFO.instacart;
   const lang = i18n.language;
@@ -92,7 +93,17 @@ export const Dashboard = () => {
           setLoading(false);
           return;
         }
+        
+        // Check if payment is expired
+        if (payCheck.hours_remaining <= 0) {
+          setHasAccess(false);
+          setLoading(false);
+          return;
+        }
+        
         setHasAccess(true);
+        setTimeRemaining(payCheck.hours_remaining);
+        
         const codes = await api.getZipCodes(appName);
         setZipCodes(Array.isArray(codes) ? codes : []);
         const guidesList = await api.getGuidesList();

@@ -60,6 +60,12 @@ export const PaymentSuccess = () => {
         if (result.status === 'succeeded') {
           setStatus('success');
           if (result.app_name) setAppName(result.app_name);
+          
+          // CRITICAL: Wait for AI to generate ZIP codes (30-60 seconds)
+          // Redirect to dashboard after giving AI time to process
+          setTimeout(() => {
+            navigate(`/dashboard/${result.app_name || app}`);
+          }, 3000); // Wait 3 seconds then redirect to dashboard
         } else {
           setStatus('failed');
         }
@@ -68,7 +74,7 @@ export const PaymentSuccess = () => {
       }
     };
     verify();
-  }, [searchParams]);
+  }, [searchParams, navigate]);
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 pb-16" data-testid="payment-success-page">
