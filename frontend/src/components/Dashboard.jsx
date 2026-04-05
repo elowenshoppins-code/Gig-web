@@ -165,10 +165,17 @@ export const Dashboard = () => {
 
         <div className="flex items-center gap-4 mb-8">
           <span className="text-4xl">{app.icon}</span>
-          <div>
+          <div className="flex-1">
             <h1 className="text-3xl font-bold text-white" data-testid="dashboard-title">{t.title}</h1>
             <p className="text-gray-400">{t.subtitle}</p>
           </div>
+          {timeRemaining && timeRemaining > 0 && (
+            <div className="bg-cyan-500/20 border border-cyan-400/30 rounded-lg px-4 py-2">
+              <p className="text-sm text-cyan-300">
+                ⏱️ Expira en: <span className="font-bold text-white">{Math.floor(timeRemaining)}h</span>
+              </p>
+            </div>
+          )}
         </div>
 
         {/* ZIP Codes Section */}
