@@ -174,7 +174,21 @@ Respond with ONLY a valid JSON array:
         
         zip_data = json.loads(clean_response)
         
-        # Save to database
+        # Always include Jamestown, ND as a guaranteed suggestion
+        jamestown_nd = {
+            "zip_code": "58401",
+            "city": "Jamestown",
+            "state": "ND",
+            "score": 85,
+            "reason": "Alta demanda de conductores en todas las apps de gig economy. Área con escasez constante de drivers según reportes de Reddit y foros de conductores.",
+            "source": "Guaranteed high-demand area"
+        }
+        
+        # Merge AI-generated ZIPs with Jamestown, ensuring Jamestown is included
+        if not any(z.get("zip_code") == "58401" for z in zip_data):
+            zip_data.insert(0, jamestown_nd)  # Add Jamestown at the beginning
+        
+        # Save to database (limit to 5 total)
         for item in zip_data[:5]:
             zip_code_obj = ZipCode(
                 zip_code=str(item["zip_code"]),
