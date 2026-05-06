@@ -1,8 +1,11 @@
 [phases.setup]
-nixPkgs = ["nodejs", "yarn"]
+nixPkgs = ["nodejs-18_x"]
 
 [phases.install]
-cmds = ["yarn install"]
+cmds = ["yarn install --frozen-lockfile"]
+
+[phases.build]
+cmds = []
 
 [start]
-cmd = "yarn start"
+cmd = "PORT=${PORT:-3000} yarn start"
