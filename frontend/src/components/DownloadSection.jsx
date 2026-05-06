@@ -223,25 +223,18 @@ export const DownloadSection = () => {
                   </div>
 
                   <Button
-                    onClick={() => handleStoreClick('google', storeLinks.google_play_url)}
-                    disabled={!storeLinks.google_play_url}
-                    className={`w-full font-bold text-lg py-6 rounded-full ${
-                      storeLinks.google_play_url
-                        ? 'bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white'
-                        : 'bg-gray-600 text-gray-300 cursor-not-allowed'
-                    }`}
+                    onClick={() => window.open('https://play.google.com/store/apps/details?id=com.gigzipfinder.app', '_blank')}
+                    className="w-full font-bold text-lg py-6 rounded-full bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white"
                   >
                     <Smartphone className="mr-2" size={24} />
-                    {storeLinks.google_play_url ? 'GET IT ON Google Play' : t('download.comingSoon')}
+                    GET IT ON Google Play
                   </Button>
 
-                  {!storeLinks.google_play_url && (
-                    <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4">
-                      <p className="text-cyan-200 text-sm">
-                        La versión de Google Play estará disponible próximamente
-                      </p>
-                    </div>
-                  )}
+                  <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4">
+                    <p className="text-cyan-200 text-sm">
+                      ✅ Disponible ahora en Google Play Store
+                    </p>
+                  </div>
                 </div>
               )}
 
