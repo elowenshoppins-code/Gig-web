@@ -1,2 +1,2 @@
 # GIG ZipFinder - Frontend Service
-web: yarn start
+web: bash start.sh

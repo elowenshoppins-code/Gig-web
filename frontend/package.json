@@ -60,9 +60,10 @@
     "zod": "^3.24.4"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "PORT=${PORT:-3000} craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "serve": "yarn start"
   },
   "proxy": "http://localhost:8001",
   "browserslist": {
