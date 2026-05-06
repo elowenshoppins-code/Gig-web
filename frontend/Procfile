@@ -1,2 +1,2 @@
-# GIG ZipFinder - Frontend Service (Production)
-web: yarn build && yarn global add serve && serve -s build -l $PORT
+# GIG ZipFinder - Frontend Service
+web: yarn start
