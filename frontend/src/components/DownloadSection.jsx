@@ -240,37 +240,30 @@ export const DownloadSection = () => {
 
               {/* App Store Tab */}
               {activeTab === 'apple' && (
-                <div className="space-y-6 text-center">
-                  <div className="mb-6">
-                    <Apple className="mx-auto text-cyan-400 mb-4" size={64} />
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                <div className="space-y-6">
+                  <div className="text-center mb-6">
+                    <Apple className="mx-auto text-cyan-400 mb-4" size={48} />
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                       Apple App Store
                     </h3>
-                    <p className="text-gray-400">
-                      Descarga desde la App Store de Apple
+                    <p className="text-gray-400 text-sm sm:text-base px-2">
+                      Descarga la app oficial desde App Store
                     </p>
                   </div>
 
                   <Button
-                    onClick={() => handleStoreClick('apple', storeLinks.apple_store_url)}
-                    disabled={!storeLinks.apple_store_url}
-                    className={`w-full font-bold text-lg py-6 rounded-full ${
-                      storeLinks.apple_store_url
-                        ? 'bg-gradient-to-r from-cyan-500 to-green-500 hover:from-cyan-600 hover:to-green-600 text-white'
-                        : 'bg-gray-600 text-gray-300 cursor-not-allowed'
-                    }`}
+                    onClick={() => window.open('https://apps.apple.com/us/app/gig-zipfinder/id6760034462?l=es-MX', '_blank')}
+                    className="w-full font-bold text-lg py-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white"
                   >
                     <Apple className="mr-2" size={24} />
-                    {storeLinks.apple_store_url ? 'Download on the App Store' : t('download.comingSoon')}
+                    Download on the App Store
                   </Button>
 
-                  {!storeLinks.apple_store_url && (
-                    <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4">
-                      <p className="text-cyan-200 text-sm">
-                        La versión de iOS estará disponible próximamente
-                      </p>
-                    </div>
-                  )}
+                  <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+                    <p className="text-blue-200 text-sm">
+                      ✅ Disponible ahora en App Store
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
